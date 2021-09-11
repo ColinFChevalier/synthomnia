@@ -7,11 +7,11 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./components/nav/NavBar"
 
 
-const App = () => (
+export const App = () => (
   <>
     <Route
       render={() => {
-        if (localStorage.getItem("synthomnia_user")) {
+        if (sessionStorage.getItem("synthomnia_user")) {
           return (
             <>
               <NavBar />

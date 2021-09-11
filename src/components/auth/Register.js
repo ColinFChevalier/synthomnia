@@ -76,7 +76,7 @@ export const Register = () => {
                     <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Sign in </button>
+                    <button type="submit"> Register and Sign in </button>
                 </fieldset>
             </form>
         </main>

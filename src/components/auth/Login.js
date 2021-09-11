@@ -46,7 +46,9 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>S Y N T H O M N I A</h1>
+                <div class="ui sizer vertical segment">
+                    <div class="ui huge header">S Y N T H O M N I A</div>
+                </div>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
