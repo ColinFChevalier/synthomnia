@@ -7,15 +7,17 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./components/nav/NavBar"
 
 
-export const App = () => (
+const App = () => (
   <>
     <Route
       render={() => {
         if (sessionStorage.getItem("synthomnia_user")) {
           return (
             <>
-              <NavBar />
+            <div className="container">
+              <NavBar name='sidenav'/>
               <ApplicationViews />
+            </div>
             </>
           );
         } else {
