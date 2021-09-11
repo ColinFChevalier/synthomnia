@@ -15,35 +15,35 @@ export const PlayList = () => {
 
   return (
     <div class="ui two column centered grid">
-  <div class="column">
-  <section className="Tracks">
-      <h2>Tracks</h2>
-      <button onClick={
-        () => history.push("/tracks/play")
-      }>
-        Add Track
-      </button>
-      {
-        tracks.map(track => {
-          return (
-            <div className="track" id={`track--${track.id}`}>
-              <div className="track__name">
-                Name: { track.name }
-              </div>
-              <div className="track__address">
-                Play: { track.url }
-              </div>
-            </div>
-          )
-        })
-      }
-    </section>
-  </div>
-  <div class="four column centered row">
-    <div class="column"></div>
-    <div class="column"></div>
-  </div>
-</div> 
+      <div class="column">
+        <section className="Tracks">
+          <h2>Tracks</h2>
+          <button onClick={
+            () => history.push("/tracks/play")
+          }>
+            Add Track
+          </button>
+          {
+            tracks.map(track => {
+              return (
+                <div className="track" id={`track--${track.id}`}>
+                  <div className="track__name">
+                    Name: {track.name}
+                  </div>
+                  <div className="track__address">
+                    Play: {track.url}
+                  </div>
+                </div>
+              )
+            })
+          }
+        </section>
+      </div>
+      <div class="four column centered row">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
   )
 }
 
