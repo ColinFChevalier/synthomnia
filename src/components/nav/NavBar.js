@@ -8,55 +8,71 @@ import {
     Grid,
     Header,
     Icon,
-    Image,
     Menu,
     Segment,
     Sidebar,
+    Button,
 } from 'semantic-ui-react'
+import { ApplicationViews } from "../../ApplicationViews"
+
+// const NavBarButton = () => (
+//     <div>
+//         <Button icon labelPosition='left'>
+//             <Icon name='content' />
+//             Menu
+//         </Button>
+//     </div>
+// )
+
+// NavBarButton()
+
+// < Header as='h3' > Menu</Header >
+//     <Icon name='content' />
 
 const NavBar = () => {
     const [visible, setVisible] = React.useState(false)
 
+
     return (
         <Grid columns={1}>
             <Grid.Column>
-                <Checkbox
-                    checked={visible}
-                    label={{ children: <code>visible</code> }}
-                    onChange={(e, data) => setVisible(data.checked)}
-                />
-            </Grid.Column>
 
-            <Grid.Column>
                 <Sidebar.Pushable as={Segment}>
+                    <Grid.Column>
+                        <Button
+                            onClick={(e, data) => setVisible(!visible)}
+                        >
+                            <Icon name='content' />
+                        </Button>
+                    </Grid.Column>
                     <Sidebar
                         as={Menu}
-                        animation='overlay'
+                        animation='push'
                         icon='labeled'
                         inverted
                         onHide={() => setVisible(false)}
                         vertical
                         visible={visible}
                         width='thin'
+                        height='100vh'
                     >
                         <Menu.Item as='a'>
-                            <Icon name='home' />
-                            Home
+                            <Icon name='play' />
+                            Play
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Icon name='gamepad' />
-                            Games
+                            Moods
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Icon name='camera' />
-                            Channels
+                            About
                         </Menu.Item>
                     </Sidebar>
 
                     <Sidebar.Pusher dimmed={visible}>
-                        <Segment basic>
-                            <Header as='h3'>Menu</Header>
-                            <Image src='/images/wireframe/paragraph.png' />
+                        <Segment basic style={{ height: '100vh' }}>
+                            <ApplicationViews />
                         </Segment>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>

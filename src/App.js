@@ -14,12 +14,10 @@ const App = () => (
         if (sessionStorage.getItem("synthomnia_user")) {
           return (
             <>
-              <div class="ui sidebar">
-                <NavBar name='sidenav' />
+              <div className="ui attatched pushable" style={{ height: '100vh' }}>
+                <NavBar />
               </div>
-              <div class="pusher">
-                <ApplicationViews />
-              </div>
+
             </>
           );
         } else {
