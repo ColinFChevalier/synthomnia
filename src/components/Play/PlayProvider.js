@@ -13,6 +13,11 @@ export const PlayProvider = (props) => {
         .then(setTracks)
     }
 
+    const getMoods = () => {
+        return fetch("http://localhost:8088/moods")
+        .then(res => res.json())
+    }
+
     // const addTracks = trackObj => {
     //     return fetch("http://localhost:8088/customers", {
     //         method: "POST",
@@ -27,7 +32,7 @@ export const PlayProvider = (props) => {
 
     return (
         <PlayContext.Provider value={{
-            tracks, getTracks
+            tracks, getTracks, getMoods
         }}>
             {props.children}
         </PlayContext.Provider>

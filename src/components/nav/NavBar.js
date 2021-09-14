@@ -15,20 +15,6 @@ import {
 } from 'semantic-ui-react'
 import { ApplicationViews } from "../../ApplicationViews"
 
-// const NavBarButton = () => (
-//     <div>
-//         <Button icon labelPosition='left'>
-//             <Icon name='content' />
-//             Menu
-//         </Button>
-//     </div>
-// )
-
-// NavBarButton()
-
-// < Header as='h3' > Menu</Header >
-//     <Icon name='content' />
-
 const NavBar = () => {
     const [visible, setVisible] = React.useState(false)
 
@@ -89,37 +75,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-
-// export const NavBar = (props) => {
-//     return (
-
-// }
-
-
-//     {/* <ul className="navbar">
-//             <li className="navbar__item active">
-//                 <Link className="navbar__link" to="/play">Play</Link>
-//             </li>
-//             <li className="navbar__item">
-//                 <Link className="navbar__link" to="/moods">Moods</Link>
-//             </li>
-//             <li className="navbar__item">
-//                 <Link className="navbar__link" to="/about">About</Link>
-//             </li>
-//         </ul> */}
-
-
-//     // <div style={{ width: props.width, paddingTop: '2em' }}>
-//     {/* <ul className="navbar">
-// <li className="navbar__item active">
-//     <Link className="navbar__link" to="/play">Play</Link>
-// </li>
-// <li className="navbar__item">
-//     <Link className="navbar__link" to="/moods">Moods</Link>
-// </li>
-// <li className="navbar__item">
-//     <Link className="navbar__link" to="/about">About</Link>
-// </li>
-// </ul> */}
-// // </div>

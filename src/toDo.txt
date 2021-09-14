@@ -1,0 +1,16 @@
+-connect PlayDetail to api and build embed function that pulls 
+track src url to string interpolate mood name and url and
+pulls from api 
+
+-keyframe animations
+
+-
+
+
+
+
+STRETCH GOALS
+-ambient album specifically for website
+-no login functionality
+-firebase for data storage
+-deployment
