@@ -4,7 +4,11 @@ pulls from api
 
 -keyframe animations
 
--
+-link specific mood/track based off of id, ask instructors
+
+-login/out make nice
+
+-favoriting function
 
 
 

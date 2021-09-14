@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { PlayProvider } from "./components/Play/PlayProvider"
 import { PlayList } from "./components/Play/PlayList"
-// import { PlayDetail } from "./components/Play/PlayDetail"
+import { PlayDetail } from "./components/Play/PlayDetail"
 import { MoodProvider } from "./components/Moods/MoodProvider"
 import { MoodList } from "./components/Moods/MoodList"
 
