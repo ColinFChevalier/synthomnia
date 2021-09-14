@@ -33,3 +33,8 @@
      margin-left: 1em;
      margin-bottom: 1em;
  }
+
+ .sidebar {
+     margin: auto;
+     padding-top: 4em;
+ }

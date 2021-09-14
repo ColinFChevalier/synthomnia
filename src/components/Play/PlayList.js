@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router"
 import { PlayContext } from "./PlayProvider"
 import "./Play.css"
 import { Button, Icon } from 'semantic-ui-react'
+// import { PlayDetail } from "./PlayDetail"
 
 export const PlayList = () => {
   const { tracks, getTracks } = useContext(PlayContext)

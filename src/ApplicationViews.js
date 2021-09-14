@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { PlayProvider } from "./components/Play/PlayProvider"
 import { PlayList } from "./components/Play/PlayList"
+// import { PlayDetail } from "./components/Play/PlayDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -10,6 +11,7 @@ export const ApplicationViews = () => {
             <PlayProvider>
                 <Route path="/">
                     <PlayList />
+                    {/* <PlayDetail /> */}
                 </Route>
             </PlayProvider>
         </>

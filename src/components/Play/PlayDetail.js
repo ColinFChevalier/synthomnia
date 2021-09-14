@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router"
 import { PlayContext } from "./PlayProvider"
 
 
-export const embedPlayer = () => {
+export const PlayDetail = () => {
 
     const { tracks, getTracks, moods, getMoods } = useContext(PlayContext)
     const [track, setTrack] = useState({ track: {}, mood: {}})
@@ -51,7 +51,3 @@ export const embedPlayer = () => {
         </div>
     )
 }
-
-
-// embedded bandcamp link
-{/* <iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=3426299746/size=large/bgcol=333333/linkcol=4ec5ec/tracklist=false/track=3125070522/transparent=true/" seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a></iframe> */ }
