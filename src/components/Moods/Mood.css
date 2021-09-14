@@ -1,0 +1,20 @@
+.div.row.tracks {
+    background-color: violet;
+    display: flex;
+    padding-top: 80em;
+}
+
+.div.row.track_object {
+    background-color: violet;
+    margin: auto;
+    padding-top: 30em;
+}
+
+.Grid.Row {
+    padding: 20em;
+}
+
+.mood_name {
+    margin: auto;
+    padding-top: 2em;
+}

@@ -42,6 +42,8 @@ const NavBar = () => {
                         width='thin'
                         height='100vh'
                     >
+                    <Grid.Column>
+                        </Grid.Column>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
                                 <Icon name='play' />

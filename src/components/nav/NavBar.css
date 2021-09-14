@@ -34,6 +34,13 @@
      margin-bottom: 1em;
  }
 
+ .button.ui.button.sidebar_toggle_open {
+    background-color: blueviolet;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
  .sidebar {
      margin: auto;
      padding-top: 4em;
