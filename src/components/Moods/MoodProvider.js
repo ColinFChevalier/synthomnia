@@ -1,0 +1,36 @@
+import React, { useState, createContext } from "react"
+
+export const MoodContext = createContext()
+
+// const apiURL = "http://localhost:8088"
+
+export const MoodProvider = (props) => {
+    const [ moods, setMoods] = useState([])
+
+
+    const getMoods = () => {
+        return fetch("http://localhost:8088/moods")
+        .then(res => res.json())
+        .then(setMoods)
+    }
+
+    // const addTracks = trackObj => {
+    //     return fetch("http://localhost:8088/tracks", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(trackObj)
+    //     })
+    //     .then(getTracks)
+    // }
+
+
+    return (
+        <MoodContext.Provider value={{
+            getMoods, moods
+        }}>
+            {props.children}
+        </MoodContext.Provider>
+    )
+}
