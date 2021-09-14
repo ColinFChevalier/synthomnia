@@ -58,22 +58,29 @@ const NavBar = () => {
                     >
                         <Menu.Item as='a'>
                             <Icon name='play' />
-                            Play
+                            <Link className="navbar__link" to="/play">Play</Link>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Icon name='gamepad' />
-                            Moods
+                            <Link className="navbar__link" to="/moods">Moods</Link>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Icon name='camera' />
-                            About
+                            <Link className="navbar__link" to="/about">About</Link>
                         </Menu.Item>
                     </Sidebar>
 
                     <Sidebar.Pusher dimmed={visible}>
-                        <Segment basic style={{ height: '100vh' }}>
-                            <ApplicationViews />
-                        </Segment>
+                        <div style={{
+                            backgroundImage: "url(" + "https://images.unsplash.com/photo-1534156039819-c89418369a4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" + ")",
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat'
+                        }}>
+                            <Segment basic style={{ height: '100vh' }}>
+                                <ApplicationViews />
+                            </Segment>
+                        </div>
                     </Sidebar.Pusher>
                 </Sidebar.Pushable>
             </Grid.Column>
