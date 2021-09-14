@@ -1,0 +1,12 @@
+.embed {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    padding-top: 3em;
+}
+
+.embed_player {
+    border: 0;
+    width: 350px;
+    height: 470px;
+}
