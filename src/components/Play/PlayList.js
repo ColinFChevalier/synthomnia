@@ -1,38 +1,37 @@
 import React, { useContext, useEffect } from "react"
-import { useHistory, Link } from "react-router"
+import { useHistory, Link, useParams } from "react-router"
 import { PlayContext } from "./PlayProvider"
 import "./Play.css"
 import { Button, Icon } from 'semantic-ui-react'
+import { PlayDetail } from "./PlayDetail"
+import { MoodContext } from "../Moods/MoodProvider"
+import { useState } from "react/cjs/react.development"
 // import { PlayDetail } from "./PlayDetail"
 
 export const PlayList = () => {
-  const { tracks, getTracks } = useContext(PlayContext)
+  const { mood, getTracksByMoodId } = useContext(MoodContext)
 
+  const { moodId } = useParams()
   const history = useHistory()
+  const [selectedTrack, setSelectedTrack] = useState({})
+
+  useEffect(() => {
+    setSelectedTrack(mood.tracks[0])
+  },[mood])
 
   useEffect(() => {
     console.log("TrackList: useEffect - getTracks")
-    getTracks()
+    getTracksByMoodId(moodId)
   }, [])
 
-  return (
-    <div class="ui two column centered grid">
-      <div class="column">
-        <section className="Tracks">
-          <h2 align='center'>Tracks</h2>
-          <div className="embed" >
-            <iframe className="embed_player"
-              src="https://bandcamp.com/EmbeddedPlayer/album=3426299746/size=large/bgcol=333333/linkcol=4ec5ec/tracklist=false/track=3125070522/transparent=true/"
-              seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
-            </iframe>
-          </div>
-        </section>
-      </div>
-      <div class="four column centered row">
-        <div class="column"></div>
-        <div class="column"></div>
-      </div>
-    </div>
+  return (<>
+    {mood.tracks.map(track => {
+      return (
+        <h2 key={track.id}>{track.name}</h2>
+      )
+    })}
+    {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+  </>
   )
 }
 

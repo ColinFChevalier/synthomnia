@@ -18,8 +18,13 @@ export const PlayProvider = (props) => {
         .then(res => res.json())
     }
 
+
+    const getTrackByMoodId = (id) => {
+        return fetch(`http://localhost:8088/moods/?_embed=tracks${id}`)
+        .then(res => res.json())
+    }
     // const addTracks = trackObj => {
-    //     return fetch("http://localhost:8088/customers", {
+    //     return fetch("http://localhost:8088/tracks", {
     //         method: "POST",
     //         headers: {
     //             "Content-Type": "application/json"
@@ -32,7 +37,7 @@ export const PlayProvider = (props) => {
 
     return (
         <PlayContext.Provider value={{
-            tracks, getTracks, getMoods
+            tracks, getTracks, getMoods, getTrackByMoodId
         }}>
             {props.children}
         </PlayContext.Provider>

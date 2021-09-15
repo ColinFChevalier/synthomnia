@@ -25,7 +25,7 @@ const NavBar = () => {
 
                 <Sidebar.Pushable as={Segment}>
                     <Grid.Column>
-                        <Button
+                        <Button className="sidebar_toggle"
                             onClick={(e, data) => setVisible(!visible)}
                         >
                             <Icon name='content' />
@@ -42,17 +42,25 @@ const NavBar = () => {
                         width='thin'
                         height='100vh'
                     >
+                    <Grid.Column>
+                        </Grid.Column>
                         <Menu.Item as='a'>
-                            <Icon name='play' />
-                            <Link className="navbar__link" to="/play">Play</Link>
+                            <Button size="huge" className="sidebar_menu_option">
+                                <Icon name='play' />
+                                <Link className="navbar__link" to="/play">Play</Link>
+                            </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
-                            <Icon name='gamepad' />
-                            <Link className="navbar__link" to="/moods">Moods</Link>
+                            <Button size="huge" className="sidebar_menu_option">
+                                <Icon name='gamepad' />
+                                <Link className="navbar__link" to="/moods">Mood</Link>
+                            </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
-                            <Icon name='camera' />
-                            <Link className="navbar__link" to="/about">About</Link>
+                            <Button size="huge" className="sidebar_menu_option">
+                                <Icon name='camera' />
+                                <Link className="navbar__link" to="/about">About</Link>
+                            </Button>
                         </Menu.Item>
                     </Sidebar>
 
