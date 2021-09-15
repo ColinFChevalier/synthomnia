@@ -5,7 +5,7 @@ import { PlayContext } from "./PlayProvider"
 
 export const PlayDetail = (props) => {
 
-    const { tracks, getTracks, moods, getMoods } = useContext(PlayContext)
+    const { tracks, getTracks, moods } = useContext(PlayContext)
     const [track, setTrack] = useState({ track: {}, mood: {} })
 
     const history = useHistory()
@@ -33,30 +33,29 @@ export const PlayDetail = (props) => {
     return (
 
         <div class="ui two column centered grid">
-            {
-                tracks.map(track => {
-                    return (
+            {/* {
+                tracks.map(track => { */}
+                    {/* return ( */}
                         <div>
-                            <div class="column">
+                            <div className="column">
                                 <section className="Tracks">
                                     <h2 align='center'>{track.name}</h2>
                                     <div className="embed" >
-
-                                        <iframe className="embed_player"
+                                        {track.embedPlayerSRC && <iframe className="embed_player"
                                             src={track.embedPlayerSRC}
                                             seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
-                                        </iframe>
+                                        </iframe>}
                                     </div>
                                 </section>
                             </div>
-                            <div class="four column centered row">
-                                <div class="column"></div>
-                                <div class="column"></div>
+                            <div className="four column centered row">
+                                <div className="column"></div>
+                                <div className="column"></div>
                             </div>
                         </div>
-                    )
+                    {/* )
                 })
-            }
+            } */}
         </div>
     )
 }

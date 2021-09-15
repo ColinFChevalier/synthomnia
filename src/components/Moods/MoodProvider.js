@@ -5,7 +5,8 @@ export const MoodContext = createContext()
 // const apiURL = "http://localhost:8088"
 
 export const MoodProvider = (props) => {
-    const [ moods, setMoods] = useState([])
+    const [ moods, setMoods ] = useState([])
+    const [ mood, setMood ] = useState({tracks:[]})
 
 
     const getMoods = () => {
@@ -13,6 +14,18 @@ export const MoodProvider = (props) => {
         .then(res => res.json())
         .then(setMoods)
     }
+
+    const getTracksByMoodId = (id) => {
+        return fetch(`http://localhost:8088/moods/${id}?_embed=tracks`)
+        .then(res => res.json())
+        .then(setMood)
+    }
+
+    // const getTracskByMoodId = (id) => {
+    //     return fetch("http://localhost:8088/moods/?_embed=tracks")
+    //     .then(res => res.json())
+    // }
+
 
     // const addTracks = trackObj => {
     //     return fetch("http://localhost:8088/tracks", {
@@ -28,7 +41,7 @@ export const MoodProvider = (props) => {
 
     return (
         <MoodContext.Provider value={{
-            getMoods, moods
+            getMoods, moods, getTracksByMoodId, mood
         }}>
             {props.children}
         </MoodContext.Provider>
