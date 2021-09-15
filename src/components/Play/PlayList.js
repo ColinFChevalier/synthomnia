@@ -17,21 +17,22 @@ export const PlayList = () => {
 
   useEffect(() => {
     setSelectedTrack(mood.tracks[0])
-  },[mood])
+  }, [mood])
 
   useEffect(() => {
     console.log("TrackList: useEffect - getTracks")
     getTracksByMoodId(moodId)
   }, [])
 
-  return (<>
-    {mood.tracks.map(track => {
-      return (
-        <h2 key={track.id}>{track.name}</h2>
-      )
-    })}
-    {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
-  </>
+  return (
+    <>
+      {mood.tracks.map(track => {
+        return (
+          <h2 key={track.id}>{track.name}</h2>
+        )
+      })}
+      {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+    </>
   )
 }
 

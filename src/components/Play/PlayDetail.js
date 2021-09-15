@@ -35,25 +35,25 @@ export const PlayDetail = (props) => {
         <div class="ui two column centered grid">
             {/* {
                 tracks.map(track => { */}
-                    {/* return ( */}
-                        <div>
-                            <div className="column">
-                                <section className="Tracks">
-                                    <h2 align='center'>{track.name}</h2>
-                                    <div className="embed" >
-                                        {track.embedPlayerSRC && <iframe className="embed_player"
-                                            src={track.embedPlayerSRC}
-                                            seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
-                                        </iframe>}
-                                    </div>
-                                </section>
-                            </div>
-                            <div className="four column centered row">
-                                <div className="column"></div>
-                                <div className="column"></div>
-                            </div>
+            {/* return ( */}
+            <div>
+                <div className="column">
+                    <section className="Tracks">
+                        <h2 align='center'>{track.name}</h2>
+                        <div className="embed" >
+                            {track.embedPlayerSRC && <iframe className="embed_player"
+                                src={track.embedPlayerSRC}
+                                seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
+                            </iframe>}
                         </div>
-                    {/* )
+                    </section>
+                </div>
+                <div className="four column centered row">
+                    <div className="column"></div>
+                    <div className="column"></div>
+                </div>
+            </div>
+            {/* )
                 })
             } */}
         </div>
