@@ -4,27 +4,27 @@ import { FavoriteContext } from "./FavoriteProvider"
 import "./Favorite.css"
 import { Grid, Image } from 'semantic-ui-react'
 
-export const MoodList = () => {
-    const { moods, getMoods } = useContext(MoodContext)
+export const FavoriteList = () => {
+    const { favorites, getFavorites } = useContext(FavoriteContext)
 
     const history = useHistory()
 
     useEffect(() => {
-        console.log("MoodList: useEffect - getMoods")
-        getMoods()
+        console.log("FavoriteList: useEffect - getFavorites")
+        getFavorites()
     }, [])
 
     return (
         <Grid columns={3} divided>
             {
-                moods.map(mood => {
+                favorites.map(favorite => {
                     return (
-                        <Grid.Column key={mood.id} className="tracks" align="center">
+                        <Grid.Column key={favorite.id} className="tracks" align="center">
                             <Grid.Column className="track_object">
-                                <Link to={`/play/${mood.id}`} className="mood_link">
-                                    <Image size="medium" src={mood.imgSRC} circular />
-                                    <div className="mood_name">
-                                        <h2>{mood.name}</h2>
+                                <Link to={`/play/${favorite.id}`} className="favorite_link">
+                                    <Image size="medium" src={favorite.imgSRC} circular />
+                                    <div className="favorite_name">
+                                        <h2>{favorite.name}</h2>
                                     </div>
                                 </Link>
                             </Grid.Column>

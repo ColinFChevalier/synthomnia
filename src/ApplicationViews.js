@@ -7,6 +7,8 @@ import { MoodProvider } from "./components/Moods/MoodProvider"
 import { MoodList } from "./components/Moods/MoodList"
 import { InfoProvider } from "./components/Info/InfoProvider"
 import { HomePage } from "./components/Info/Info"
+import { FavoriteProvider } from "./components/Favorites/FavoriteProvider"
+import { FavoriteList } from "./components/Favorites/FavoriteList"
 
 export const ApplicationViews = () => {
     return (
@@ -15,19 +17,25 @@ export const ApplicationViews = () => {
             <PlayProvider>
                 <MoodProvider>
                     <InfoProvider>
-                        <Route path="/home">
-                            <HomePage />
+                        <FavoriteProvider>
+                            <Route path="/home">
+                                <HomePage />
 
-                        </Route>
+                            </Route>
 
-                        <Route path="/play/:moodId">
-                            <PlayList />
+                            <Route path="/play/:moodId">
+                                <PlayList />
 
-                        </Route>
+                            </Route>
 
-                        <Route path="/moods">
-                            <MoodList />
-                        </Route>
+                            <Route path="/moods">
+                                <MoodList />
+                            </Route>
+
+                            <Route path="/favorites">
+                                <FavoriteList />
+                            </Route>
+                        </FavoriteProvider>
                     </InfoProvider>
                 </MoodProvider>
             </PlayProvider>

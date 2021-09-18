@@ -4,7 +4,7 @@ export const FavoriteContext = createContext()
 
 const apiURL = "http://localhost//8088"
 
-export const FavoritePovider = () => {
+export const FavoriteProvider = (props) => {
 
     const [favorites, setFavorites] = useState([])
     const [favorite, setFavorite] = useState({ tracks: [] })

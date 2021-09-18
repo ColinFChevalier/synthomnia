@@ -1,11 +1,14 @@
 import React, { useEffect, useState, createContext, useContext } from "react"
 import { useHistory, useParams } from "react-router"
 import { PlayContext } from "./PlayProvider"
+import { FavoriteContext } from "../Favorites/FavoriteProvider"
+import { Button, Icon, Label } from 'semantic-ui-react'
 
 
 export const PlayDetail = (props) => {
 
     const { tracks, getTracks, moods } = useContext(PlayContext)
+    const { favoritePost } = useContext(FavoriteContext)
     const [track, setTrack] = useState({ track: {}, mood: {} })
 
     const history = useHistory()
@@ -52,10 +55,20 @@ export const PlayDetail = (props) => {
                     <div className="column"></div>
                     <div className="column"></div>
                 </div>
+                <div>
+                    
+                    <Button as='div' labelPosition='right' onClick={favoritePost()}>
+                        <Button color='red'>
+                            <Icon name='heart' />
+                            Like
+                        </Button>
+                        <Label as='a' basic color='red' pointing='left'>
+                            2,048
+                        </Label>
+                    </Button>
+                </div>
+                )
             </div>
-            {/* )
-                })
-            } */}
         </div>
     )
 }
