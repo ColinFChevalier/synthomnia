@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react"
 
 export const FavoriteContext = createContext()
 
-const apiURL = "http://localhost//8088"
+const apiURL = "http://localhost:8088"
 
 export const FavoriteProvider = (props) => {
 
@@ -22,7 +22,7 @@ export const FavoriteProvider = (props) => {
             .then(setFavorite)
     }
 
-    const favoritePost = (id) => {
+    const favoriteTrack = (id) => {
         const fetchFavorites = {
             method: "POST",
             headers: {
@@ -31,21 +31,20 @@ export const FavoriteProvider = (props) => {
             body: JSON.stringify({
                 "userId": parseInt(sessionStorage.getItem("synthomnia_user")
                 ),
-                "postId": id
+                "trackId": id
             })
         }
 
         return fetch(`${apiURL}/favorites`, fetchFavorites)
             .then(response => response.json())
             .then(() => {
-                const applicationElement = document.querySelector('.giffygram')
-                applicationElement.dispatchEvent(new CustomEvent("statchanged", { detail: { page: "PostDisplay" } }))
+
             })
     }
 
     return (
         <FavoriteContext.Provider value={{
-            getFavorites, favorites, getTracksByFavoriteId, favorite, favoritePost
+            getFavorites, favorites, getTracksByFavoriteId, favorite, favoriteTrack
         }}>
             {props.children}
         </FavoriteContext.Provider>
