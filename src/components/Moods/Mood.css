@@ -3,6 +3,10 @@
     padding-top: 1em;
 }
 
+/* .div.ui.divided.grid {
+    align-self: center;
+} */
+
 .div.row.track_object {
     background-color: violet;
     padding-top: 1em;

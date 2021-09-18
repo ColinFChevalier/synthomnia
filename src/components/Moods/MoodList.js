@@ -15,11 +15,11 @@ export const MoodList = () => {
     }, [])
 
     return (
-        <Grid rows={2} divided>
+        <Grid columns={3} divided>
             {
                 moods.map(mood => {
                     return (
-                        <Grid.Row key={mood.id} className="tracks" align="center">
+                        <Grid.Column key={mood.id} className="tracks" align="center">
                             <Grid.Column className="track_object">
                                 <Link to={`/play/${mood.id}`} className="mood_link">
                                     <Image size="medium" src={mood.imgSRC} circular />
@@ -28,7 +28,7 @@ export const MoodList = () => {
                                     </div>
                                 </Link>
                             </Grid.Column>
-                        </Grid.Row>
+                        </Grid.Column>
                     )
                 })
             }

@@ -28,7 +28,7 @@ export const PlayList = () => {
     <>
       {mood.tracks.map(track => {
         return (
-          <h2 key={track.id}>{track.name}</h2>
+          <h2 key={track.id}></h2>
         )
       })}
       {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}

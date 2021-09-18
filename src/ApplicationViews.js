@@ -5,6 +5,8 @@ import { PlayList } from "./components/Play/PlayList"
 // import { PlayDetail } from "./components/Play/PlayDetail"
 import { MoodProvider } from "./components/Moods/MoodProvider"
 import { MoodList } from "./components/Moods/MoodList"
+import { InfoProvider } from "./components/Info/InfoProvider"
+import { InfoPage } from "./components/Info/Info"
 
 export const ApplicationViews = () => {
     return (
@@ -12,14 +14,21 @@ export const ApplicationViews = () => {
             <h1 align="center">S Y N T H O M N I A</h1>
             <PlayProvider>
                 <MoodProvider>
-                    <Route path="/play/:moodId">
-                        <PlayList />
-                        
-                    </Route>
+                    <InfoProvider>
+                        <Route path="/welcome">
+                            <InfoPage />
 
-                    <Route path="/moods">
-                        <MoodList />
-                    </Route>
+                        </Route>
+
+                        <Route path="/play/:moodId">
+                            <PlayList />
+
+                        </Route>
+
+                        <Route path="/moods">
+                            <MoodList />
+                        </Route>
+                    </InfoProvider>
                 </MoodProvider>
             </PlayProvider>
         </>

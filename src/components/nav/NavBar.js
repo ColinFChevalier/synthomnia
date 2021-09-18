@@ -47,7 +47,7 @@ const NavBar = () => {
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
                                 <Icon name='play' />
-                                <Link className="navbar__link" to="/play">Play</Link>
+                                <Link className="navbar__link" to="/Welcome">Info</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
