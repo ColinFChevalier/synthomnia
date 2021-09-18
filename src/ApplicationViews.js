@@ -6,7 +6,7 @@ import { PlayList } from "./components/Play/PlayList"
 import { MoodProvider } from "./components/Moods/MoodProvider"
 import { MoodList } from "./components/Moods/MoodList"
 import { InfoProvider } from "./components/Info/InfoProvider"
-import { InfoPage } from "./components/Info/Info"
+import { HomePage } from "./components/Info/Info"
 
 export const ApplicationViews = () => {
     return (
@@ -15,8 +15,8 @@ export const ApplicationViews = () => {
             <PlayProvider>
                 <MoodProvider>
                     <InfoProvider>
-                        <Route path="/welcome">
-                            <InfoPage />
+                        <Route path="/home">
+                            <HomePage />
 
                         </Route>
 

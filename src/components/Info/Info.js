@@ -4,7 +4,7 @@ import { useHistory, Link, useParams } from "react-router"
 import { Grid, Image } from 'semantic-ui-react'
 import "./Info.css"
 
-export const InfoPage = () => {
+export const HomePage = () => {
     return (
         <Grid divided='vertically' align="center">
             <Grid.Row columns={2}>

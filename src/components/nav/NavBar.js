@@ -4,7 +4,6 @@ import "./NavBar.css"
 import 'semantic-ui-react'
 import 'semantic-ui-css'
 import {
-    Checkbox,
     Grid,
     Header,
     Icon,
@@ -47,7 +46,7 @@ const NavBar = () => {
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
                                 <Icon name='play' />
-                                <Link className="navbar__link" to="/Welcome">Info</Link>
+                                <Link className="navbar__link" to="/home">Home</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
