@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react"
 import { useHistory, Link } from "react-router"
 import { FavoriteContext } from "./FavoriteProvider"
 import "./Favorite.css"
-import { Grid, Image } from 'semantic-ui-react'
 import { PlayList } from "../Play/PlayList"
 
 export const FavoriteList = () => {
@@ -21,6 +20,6 @@ export const FavoriteList = () => {
     }, [])
 
     return (
-        <FavoriteList />
+        <PlayList />
     )
 }

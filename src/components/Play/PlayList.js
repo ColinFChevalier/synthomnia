@@ -6,11 +6,11 @@ import { Button, Icon } from 'semantic-ui-react'
 import { PlayDetail } from "./PlayDetail"
 import { MoodContext } from "../Moods/MoodProvider"
 import { useState } from "react/cjs/react.development"
+import { FavoriteContext } from "../Favorites/FavoriteProvider"
 // import { PlayDetail } from "./PlayDetail"
 
 export const PlayList = () => {
   const { mood, getTracksByMoodId } = useContext(MoodContext)
-
   const { moodId } = useParams()
   const history = useHistory()
   const [selectedTrack, setSelectedTrack] = useState({})
@@ -31,7 +31,32 @@ export const PlayList = () => {
           <h2 key={track.id}></h2>
         )
       })}
-      {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+      {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />} 
     </>
   )
 }
+
+// const FavoritePlayer = () => {
+//   const { favorite, getTracksByFavoriteId } = useContext(FavoriteContext)
+//   const { favoriteId } = useParams()
+
+//   useEffect(() => {
+//     setSelectedTrack(favorite.tracks[0])
+//   }, [favorite])
+
+//   useEffect(() => {
+//     console.log("TrackList: useEffect - getTracks")
+//     getTracksByFavoriteId(favoriteId)
+//   }, [])
+
+//   return (
+//     <>
+//       {favorite.tracks.map(track => {
+//         return (
+//           <h2 key={track.id}></h2>
+//         )
+//       })}
+//       {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+//     </>
+//   )
+// }

@@ -58,13 +58,13 @@ const NavBar = () => {
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
                                 <Icon name='camera' />
-                                <Link className="navbar__link" to="/about">About</Link>
+                                <Link className="navbar__link" to="/favorites">Favs</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
                                 <Icon name='camera' />
-                                <Link className="navbar__link" to="/favorites">Favs</Link>
+                                <Link className="navbar__link" to="/about">About</Link>
                             </Button>
                         </Menu.Item>
                     </Sidebar>
