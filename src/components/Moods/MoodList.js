@@ -21,7 +21,7 @@ export const MoodList = () => {
                     return (
                         <Grid.Column key={mood.id} className="tracks" align="center">
                             <Grid.Column className="track_object">
-                                <Link to={`/play/${mood.id}`} className="mood_link">
+                                <Link to={`/play/mood_${mood.id}`} className="mood_link">
                                     <Image size="medium" src={mood.imgSRC} circular />
                                     <div className="mood_name">
                                         <h2>{mood.name}</h2>

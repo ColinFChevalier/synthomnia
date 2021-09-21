@@ -23,7 +23,7 @@ export const ApplicationViews = () => {
 
                             </Route>
 
-                            <Route path="/play/:moodId">
+                            <Route path="/play/:moodParam">
                                 <PlayList />
 
                             </Route>

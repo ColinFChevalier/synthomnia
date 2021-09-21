@@ -11,30 +11,63 @@ import { FavoriteContext } from "../Favorites/FavoriteProvider"
 
 export const PlayList = () => {
   const { mood, getTracksByMoodId } = useContext(MoodContext)
-  const { moodId } = useParams()
+  const { moodParam } = useParams()
+  const [ trackStyle, trackId ] = moodParam.split("_")
+  // debugger
   const history = useHistory()
   const [selectedTrack, setSelectedTrack] = useState({})
-
+  const { favorite, getTracksByFavoriteId } = useContext(FavoriteContext)
+  
   useEffect(() => {
-    setSelectedTrack(mood.tracks[0])
-  }, [mood])
+    if (trackStyle === "mood") {
+      setSelectedTrack(favorite.tracks[0])
+        getTracksByMoodId(trackId)
+    } else {
+      setSelectedTrack(mood.tracks[0])
+        getTracksByFavoriteId(trackId)
+    }
+  }, [favorite, mood])
 
-  useEffect(() => {
-    console.log("TrackList: useEffect - getTracks")
-    getTracksByMoodId(moodId)
-  }, [])
+  // useEffect(() => {
+  //   console.log("TrackList: useEffect - getTracks")
+  //   getTracksByFavoriteId(favoriteId)
+  // }, [])
 
-  return (
-    <>
-      {mood.tracks.map(track => {
-        return (
-          <h2 key={track.id}></h2>
-        )
-      })}
-      {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />} 
-    </>
-  )
+  // useEffect(() => {
+  //   setSelectedTrack(mood.tracks[0])
+  // }, [mood])
+
+  // useEffect(() => {
+  //   console.log("TrackList: useEffect - getTracks")
+  //   getTracksByMoodId(moodId)
+  // }, [])
+
+  if (trackStyle === "mood") {
+
+    return (
+      <>
+        {mood.tracks.map(track => {
+          return (
+            <h2 key={track.id}></h2>
+          )
+        })}
+        {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+      </>
+    )
+  } else {
+    return (
+      <>
+        {favorite.tracks.map(track => {
+          return (
+            <h2 key={track.id}></h2>
+          )
+        })}
+        {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+      </>
+    )
+  }
 }
+
 
 // const FavoritePlayer = () => {
 //   const { favorite, getTracksByFavoriteId } = useContext(FavoriteContext)
