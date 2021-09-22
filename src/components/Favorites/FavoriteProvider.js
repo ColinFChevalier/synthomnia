@@ -7,7 +7,7 @@ const apiURL = "http://localhost:8088"
 export const FavoriteProvider = (props) => {
 
     const [favorites, setFavorites] = useState([])
-    const [favorite, setFavorite] = useState({ tracks: [] })
+    const [favorite, setFavorite] = useState({ moods: [] })
 
 
     const getFavorites = () => {
@@ -16,13 +16,13 @@ export const FavoriteProvider = (props) => {
             .then(setFavorites)
     }
 
-    const getTracksByFavoriteId = (id) => {
+    const getMoodsByFavoriteId = (id) => {
         return fetch(`http://localhost:8088/favorites/${id}?_embed=tracks`)
             .then(res => res.json())
             .then(setFavorite)
     }
 
-    const favoriteTrack = (id) => {
+    const favoriteMood = (id) => {
         const fetchFavorites = {
             method: "POST",
             headers: {
@@ -31,7 +31,7 @@ export const FavoriteProvider = (props) => {
             body: JSON.stringify({
                 "userId": parseInt(sessionStorage.getItem("synthomnia_user")
                 ),
-                "trackId": id
+                "moodId": id
             })
         }
 
@@ -42,9 +42,16 @@ export const FavoriteProvider = (props) => {
             })
     }
 
+    const deleteFav = favId => {
+        return fetch(`${apiURL}/${favId}`, {
+            method: "DELETE"
+        })
+            .then(getFavorites)
+    }
+
     return (
         <FavoriteContext.Provider value={{
-            getFavorites, favorites, getTracksByFavoriteId, favorite, favoriteTrack
+            getFavorites, favorites, getMoodsByFavoriteId, favorite, favoriteMood, deleteFav
         }}>
             {props.children}
         </FavoriteContext.Provider>

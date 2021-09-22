@@ -8,7 +8,7 @@ import { Button, Icon, Label } from 'semantic-ui-react'
 export const PlayDetail = (props) => {
 
     const { tracks, getTracks, moods } = useContext(PlayContext)
-    const { favoriteTrack } = useContext(FavoriteContext)
+    const { favoriteMood } = useContext(FavoriteContext)
     const [track, setTrack] = useState({ track: {}, mood: {} })
 
     const history = useHistory()
@@ -52,7 +52,7 @@ export const PlayDetail = (props) => {
                     <div className="column"></div>
                 </div>
                 <div>
-                    <Button as='div' labelPosition='right' onClick={()=> favoriteTrack(track.id)}>
+                    <Button as='div' labelPosition='right' onClick={() => favoriteMood(track.id)}>
                         <Button color='red'>
                             <Icon name='heart' />
                             Like

@@ -21,9 +21,9 @@ export const PlayList = () => {
 
   useEffect(() => {
     console.log("TrackList: useEffect - getTracks")
-    getTracksByMoodId(moodId)
+    getTracksByMoodId(parseInt(moodId))
   }, [])
-
+  
   return (
     <>
       {mood.tracks.map(track => {
