@@ -9,6 +9,7 @@ import { InfoProvider } from "./components/Info/InfoProvider"
 import { HomePage } from "./components/Info/Info"
 import { FavoriteProvider } from "./components/Favorites/FavoriteProvider"
 import { FavoriteList } from "./components/Favorites/FavoriteList"
+import { AboutForm } from "./components/About/AboutForm"
 
 export const ApplicationViews = () => {
     return (
@@ -20,7 +21,6 @@ export const ApplicationViews = () => {
                         <FavoriteProvider>
                             <Route path="/home">
                                 <HomePage />
-
                             </Route>
 
                             <Route path="/play/:moodId">
@@ -34,6 +34,10 @@ export const ApplicationViews = () => {
 
                             <Route path="/favorites">
                                 <FavoriteList />
+                            </Route>
+
+                            <Route path="/about">
+                                <AboutForm />
                             </Route>
                         </FavoriteProvider>
                     </InfoProvider>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useHistory, Link } from "react-router-dom"
 import { FavoriteContext } from "./FavoriteProvider"
 import "./Favorite.css"
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Header } from 'semantic-ui-react'
 
 
 export const FavoriteList = () => {
@@ -29,10 +29,6 @@ export const FavoriteList = () => {
                         return (
                             <Grid.Column key={favorite.id} className="tracks" align="center">
                                 <Grid.Column className="track_object">
-{/* 
-                                    <Button onClick={playFavMood} id={favorite.moodId}>
-
-                                    </Button> */}
                                     <Link to={`/play/${favorite.moodId}`} className="favorite_link">
                                         <Image size="medium" src={favorite.imgSRC} circular />
                                         <div className="favorite_name">
