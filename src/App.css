@@ -8,3 +8,10 @@
   padding: 0%;
 }
 
+.footer {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0em;
+}
+

@@ -1,54 +1,37 @@
-import React, { Component } from 'react'
-import { Grid, Menu, Segment, Button } from 'semantic-ui-react'
+// import React, { Component } from 'react'
+// import { Grid, Menu, Segment, Button, Image, Item } from 'semantic-ui-react'
 
-export class AboutForm extends Component {
-  state = { activeItem: 'github' }
+// export const AboutForm = () => (
+//   <div>
+//   <Item.Group>
+//     <Item>
+//       <Item.Image size='tiny' src='/images/wireframe/image.png' />
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+//       <Item.Content>
+//         <Item.Header as='a'>Header</Item.Header>
+//         <Item.Meta>Description</Item.Meta>
+//         <Item.Description>
+//           <Image src='/images/wireframe/short-paragraph.png' />
+//         </Item.Description>
+//         <Item.Extra>Additional Details</Item.Extra>
+//       </Item.Content>
+//     </Item>
 
-  render() {
-    const { activeItem } = this.state
+//     <Item>
+//       <Item.Image size='tiny' src='/images/wireframe/image.png' />
 
-    return (
-      <Grid>
-        <Grid.Column width={4}>
-          <Menu fluid vertical tabular>
-            <Menu.Item
-              name='github'
-              active={activeItem === 'github'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name='pics'
-              active={activeItem === 'pics'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name='companies'
-              active={activeItem === 'companies'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name='links'
-              active={activeItem === 'links'}
-              onClick={this.handleItemClick}
-            />
-          </Menu>
-        </Grid.Column>
+//       <Item.Content>
+//         <Item.Header as='a'>Header</Item.Header>
+//         <Item.Meta>Description</Item.Meta>
+//         <Item.Description>
+//           <Image src='/images/wireframe/short-paragraph.png' />
+//         </Item.Description>
+//         <Item.Extra>Additional Details</Item.Extra>
+//       </Item.Content>
+//     </Item>
+//   </Item.Group>
+//   </div>
+// )
 
-        <Grid.Column stretched width={12}>
-          <Segment>
-            <Button.Group vertical>
-    <Button>Feed</Button>
-    <Button>Messages</Button>
-    <Button>Events</Button>
-    <Button>Photos</Button>
-  </Button.Group>
-          </Segment>
-        </Grid.Column>
-      </Grid>
-    )
-  }
-}
 
-export default AboutForm
+

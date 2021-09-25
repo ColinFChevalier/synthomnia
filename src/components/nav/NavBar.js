@@ -45,26 +45,20 @@ const NavBar = () => {
                         </Grid.Column>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='play' />
+                                <Icon name='home' />
                                 <Link className="navbar__link" to="/home">Home</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='gamepad' />
+                                <Icon name='options' />
                                 <Link className="navbar__link" to="/moods">Mood</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='camera' />
+                                <Icon name='favorite' />
                                 <Link className="navbar__link" to="/favorites">Favs</Link>
-                            </Button>
-                        </Menu.Item>
-                        <Menu.Item as='a'>
-                            <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='camera' />
-                                <Link className="navbar__link" to="/about">About</Link>
                             </Button>
                         </Menu.Item>
                     </Sidebar>
@@ -76,7 +70,7 @@ const NavBar = () => {
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
                         }}>
-                            <Segment basic style={{ height: '100vh' }}>
+                            <Segment basic style={{ height: '100vh', width: '100vw' }}>
                                 <ApplicationViews />
                             </Segment>
                         </div>

@@ -9,7 +9,7 @@ import { InfoProvider } from "./components/Info/InfoProvider"
 import { HomePage } from "./components/Info/Info"
 import { FavoriteProvider } from "./components/Favorites/FavoriteProvider"
 import { FavoriteList } from "./components/Favorites/FavoriteList"
-import { AboutForm } from "./components/About/AboutForm"
+// import { AboutForm } from "./components/About/AboutForm"
 
 export const ApplicationViews = () => {
     return (
@@ -36,9 +36,9 @@ export const ApplicationViews = () => {
                                 <FavoriteList />
                             </Route>
 
-                            <Route path="/about">
+                            {/* <Route path="/about">
                                 <AboutForm />
-                            </Route>
+                            </Route> */}
                         </FavoriteProvider>
                     </InfoProvider>
                 </MoodProvider>

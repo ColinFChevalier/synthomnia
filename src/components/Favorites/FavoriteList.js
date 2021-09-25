@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory, Link } from "react-router-dom"
 import { FavoriteContext } from "./FavoriteProvider"
+// import { MoodContext } from "../Moods/MoodProvider"
 import "./Favorite.css"
-import { Grid, Image, Header } from 'semantic-ui-react'
+import { Grid, Image, Header, Button, Icon } from 'semantic-ui-react'
 
 
 export const FavoriteList = () => {
-    const { favorites, getFavorites } = useContext(FavoriteContext)
+    const { favorites, getFavorites, deleteFav } = useContext(FavoriteContext)
+    // const [track, setTrack] = useState({ track: {}, mood: {} })
     const currentUser = parseInt(sessionStorage.getItem("synthomnia_user"))
     const history = useHistory()
 
@@ -16,7 +18,7 @@ export const FavoriteList = () => {
     }, [])
 
     // const playFavMood = (e) => {
-        
+
     // }
 
     return (
@@ -30,14 +32,21 @@ export const FavoriteList = () => {
                             <Grid.Column key={favorite.id} className="tracks" align="center">
                                 <Grid.Column className="track_object">
                                     <Link to={`/play/${favorite.moodId}`} className="favorite_link">
-                                        <Image size="medium" src={favorite.imgSRC} circular />
+                                        <Image size="medium" src={favorite.favImgSRC} circular />
                                         <div className="favorite_name">
                                             <h2>{favorite.name}</h2>
                                         </div>
+                                        <Button as='div' labelPosition='right' onClick={() => deleteFav()}>
+                                            <Button color='red'>
+                                                <Icon name='delete' />
+                                                Delete Fav
+                                            </Button>
+                                        </Button>
                                     </Link>
                                 </Grid.Column>
                             </Grid.Column>
                         )
+
                     }
                 })
             }

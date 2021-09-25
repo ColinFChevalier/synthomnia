@@ -5,6 +5,7 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register"
 import { ApplicationViews } from "./ApplicationViews"
 import NavBar from "./components/nav/NavBar"
+import { FooterLinks } from './components/Footer/Footer';
 import 'semantic-ui-react'
 
 const App = () => (
@@ -16,8 +17,10 @@ const App = () => (
             <>
               <div className="ui attatched pushable" style={{ height: '100vh' }}>
                 <NavBar />
+                <div className="footer">
+                  <FooterLinks />
+                </div>
               </div>
-
             </>
           );
         } else {
