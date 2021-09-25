@@ -31,7 +31,7 @@ export const FavoriteProvider = (props) => {
             body: JSON.stringify({
                 "userId": parseInt(sessionStorage.getItem("synthomnia_user")
                 ),
-                "moodId": id
+                "moodId": id 
             })
         }
 
@@ -43,7 +43,7 @@ export const FavoriteProvider = (props) => {
     }
 
     const deleteFav = favId => {
-        return fetch(`${apiURL}/${favId}`, {
+        return fetch(`http://localhost:8088/favorites/${favId}`, {
             method: "DELETE"
         })
             .then(getFavorites)

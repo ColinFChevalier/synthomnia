@@ -19,7 +19,7 @@ export const ApplicationViews = () => {
                 <MoodProvider>
                     <InfoProvider>
                         <FavoriteProvider>
-                            <Route path="/home">
+                            <Route path="/">
                                 <HomePage />
                             </Route>
 

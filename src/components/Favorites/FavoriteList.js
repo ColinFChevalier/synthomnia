@@ -1,25 +1,30 @@
-import React, { useContext, useEffect } from "react"
-import { useHistory, Link } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react"
+import { useHistory, Link, useParams } from "react-router-dom"
 import { FavoriteContext } from "./FavoriteProvider"
 // import { MoodContext } from "../Moods/MoodProvider"
 import "./Favorite.css"
 import { Grid, Image, Header, Button, Icon } from 'semantic-ui-react'
 
 
-export const FavoriteList = () => {
+export const FavoriteList = (props) => {
     const { favorites, getFavorites, deleteFav } = useContext(FavoriteContext)
     // const [track, setTrack] = useState({ track: {}, mood: {} })
     const currentUser = parseInt(sessionStorage.getItem("synthomnia_user"))
     const history = useHistory()
+    const [favorite] = useState({ favorites: {} })
+
 
     useEffect(() => {
         console.log("FavoriteList: useEffect - getFavorites")
         getFavorites()
     }, [])
 
-    // const playFavMood = (e) => {
-
-    // }
+        const handleDelete = () => {
+            deleteFav()
+                .then(() => {
+                    history.push("/favorites")
+                })
+        }
 
     return (
         <Grid columns={3} divided>
@@ -36,8 +41,8 @@ export const FavoriteList = () => {
                                         <div className="favorite_name">
                                             <h2>{favorite.name}</h2>
                                         </div>
-                                        <Button as='div' labelPosition='right' onClick={() => deleteFav()}>
-                                            <Button color='red'>
+                                        <Button as='div' labelPosition='right'>
+                                            <Button color='red' onClick={handleDelete}>
                                                 <Icon name='delete' />
                                                 Delete Fav
                                             </Button>
