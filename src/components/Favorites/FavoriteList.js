@@ -27,7 +27,7 @@ export const FavoriteList = (props) => {
         }
 
     return (
-        <Grid columns={3} divided>
+        <Grid columns={3} divided align="center">
             {
                 favorites.map(favorite => {
                     if (
