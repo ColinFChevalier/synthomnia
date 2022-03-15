@@ -11,6 +11,7 @@ export const MoodList = () => {
 
     useEffect(() => {
         console.log("MoodList: useEffect - getMoods")
+        debugger
         getMoods()
     }, [])
 
@@ -22,7 +23,7 @@ export const MoodList = () => {
                         <Grid.Column key={mood.id} className="tracks" align="center">
                             <Grid.Column className="track_object">
                                 <Link to={`/play/${mood.id}`} className="mood_link">
-                                    <Image size="medium" src={mood.imgSRC} circular />
+                                    <Image size="medium" src={mood.imgURL} circular />
                                     <div className="mood_name">
                                         <h2>{mood.name}</h2>
                                     </div>

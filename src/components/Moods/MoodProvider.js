@@ -5,20 +5,24 @@ export const MoodContext = createContext()
 // const apiURL = "http://localhost:8088"
 
 export const MoodProvider = (props) => {
-    const [ moods, setMoods ] = useState([])
-    const [ mood, setMood ] = useState({tracks:[]})
+    const [moods, setMoods] = useState([])
+    const [mood, setMood] = useState({ tracks: [] })
 
 
     const getMoods = () => {
-        return fetch("http://localhost:8088/moods")
-        .then(res => res.json())
-        .then(setMoods)
+        return fetch("http://localhost:8000/moods", {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("su_token")}`
+            }
+        })
+            .then(res => res.json())
+            .then(setMoods)
     }
 
     const getTracksByMoodId = (id) => {
-        return fetch(`http://localhost:8088/moods/${id}?_embed=tracks`)
-        .then(res => res.json())
-        .then(setMood)
+        return fetch(`http://localhost:8000/moods/${id}?_embed=tracks`)
+            .then(res => res.json())
+            .then(setMood)
     }
 
     // const getTracskByMoodId = (id) => {

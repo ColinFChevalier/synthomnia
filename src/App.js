@@ -12,7 +12,7 @@ const App = () => (
   <>
     <Route
       render={() => {
-        if (sessionStorage.getItem("synthomnia_user")) {
+        if (localStorage.getItem("su_token")) {
           return (
             <>
               <div className="ui attatched pushable" style={{ height: '100vh' }}>
