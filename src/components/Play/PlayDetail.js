@@ -6,7 +6,7 @@ import { Button, Icon, Label } from 'semantic-ui-react'
 
 
 export const PlayDetail = (props) => {
-
+    
     const { tracks, getTracks, moods } = useContext(PlayContext)
     const { favoriteMood } = useContext(FavoriteContext)
     const [track, setTrack] = useState({ track: {}, mood: {} })
@@ -40,8 +40,8 @@ export const PlayDetail = (props) => {
                     <section className="Tracks">
                         <h2 align='center'>{track.name}</h2>
                         <div className="embed" >
-                            {track.embedPlayerSRC && <iframe className="embed_player"
-                                src={track.embedPlayerSRC}
+                            {track.bandcampURL && <iframe className="embed_player"
+                                src={track.bandcampURL}
                                 seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
                             </iframe>}
                         </div>

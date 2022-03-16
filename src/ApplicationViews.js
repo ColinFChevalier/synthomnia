@@ -9,6 +9,7 @@ import { InfoProvider } from "./components/Info/InfoProvider"
 import { HomePage } from "./components/Info/Info"
 import { FavoriteProvider } from "./components/Favorites/FavoriteProvider"
 import { FavoriteList } from "./components/Favorites/FavoriteList"
+import { PlayDetail } from "./components/Play/PlayDetail"
 // import { AboutForm } from "./components/About/AboutForm"
 
 export const ApplicationViews = () => {

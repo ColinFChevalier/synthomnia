@@ -13,25 +13,27 @@ export const PlayList = () => {
   const { mood, getTracksByMoodId } = useContext(MoodContext)
   const { moodId } = useParams()
   const history = useHistory()
-  const [selectedTrack, setSelectedTrack] = useState({})
+  const [selectedTrack, setTrack] = useState({})
 
-  useEffect(() => {
-    setSelectedTrack(mood.tracks[0])
-  }, [mood])
+  // useEffect(() => {
+  //   setSelectedTrack(mood.tracks[0])
+  // }, [mood])
 
   useEffect(() => {
     console.log("TrackList: useEffect - getTracks")
+    // debugger
     getTracksByMoodId(parseInt(moodId))
+    .then(setTrack)
   }, [])
-  
+
   return (
     <>
-      {mood.tracks.map(track => {
+      {mood?.tracks?.map(track => {
         return (
           <h2 key={track.id}></h2>
         )
       })}
-      {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />} 
+      {selectedTrack && selectedTrack.bandcampURL && <PlayDetail track={selectedTrack} />}
     </>
   )
 }
@@ -56,7 +58,7 @@ export const PlayList = () => {
 //           <h2 key={track.id}></h2>
 //         )
 //       })}
-//       {selectedTrack && selectedTrack.embedPlayerSRC && <PlayDetail track={selectedTrack} />}
+//       {selectedTrack && selectedTrack.bandcampURL && <PlayDetail track={selectedTrack} />}
 //     </>
 //   )
 // }

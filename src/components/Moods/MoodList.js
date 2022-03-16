@@ -11,7 +11,6 @@ export const MoodList = () => {
 
     useEffect(() => {
         console.log("MoodList: useEffect - getMoods")
-        debugger
         getMoods()
     }, [])
 
