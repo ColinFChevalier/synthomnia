@@ -20,7 +20,7 @@ export const MoodProvider = (props) => {
     }
 
     const getTracksByMoodId = (id) => {
-        return fetch(`http://localhost:8000/moods/${id}?_embed=tracks`, {
+        return fetch(`http://localhost:8000/moods/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -28,6 +28,15 @@ export const MoodProvider = (props) => {
             .then(res => res.json())
             .then(setMood)
     }
+    // const getTracksByMoodId = (id) => {
+    //     return fetch(`http://localhost:8000/moods/${id}?_embed=tracks`, {
+    //         headers: {
+    //             "Authorization": `Token ${localStorage.getItem("su_token")}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(setMood)
+    // }
 
     // const getTracskByMoodId = (id) => {
     //     return fetch("http://localhost:8088/moods/?_embed=tracks")
