@@ -7,15 +7,23 @@ export const ProfileProvider = (props) => {
     const [currentUser, setCurrentUser] = useState({})
 
     const getProfiles = () => {
-        return fetch("http://localhost:8088/users")
+        return fetch("http://localhost:8000/synthomniauser", {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("su_token")}`
+            }
+        })
             .then(res => res.json())
             .then(setProfiles)
     }
 
-    const getProfileById = (userId) => {
-        return fetch(`http://localhost:8088/users/${userId}`)
-        .then(res => res.json())
-        .then(setCurrentUser)
+    const getProfileById = (id) => {
+        return fetch(`http://localhost:8000/synthomniauser/${id}`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("su_token")}`
+            }
+        })
+            .then(res => res.json())
+            .then(setCurrentUser)
     }
 
     return (
@@ -26,3 +34,5 @@ export const ProfileProvider = (props) => {
         </ProfileContext.Provider>
     )
 }
+
+// a41dce7076b1ff7790db68a952051fd8ef9a5a44

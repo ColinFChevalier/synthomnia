@@ -2,15 +2,16 @@ import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { ProfileContext } from "./ProfileProvider"
 
-const currentUser = parseInt(localStorage.getItem("synthomnia_user_id"))
+const currentUser = parseInt(localStorage.getItem("su_token"))
 // const userProfile = []
 
 export const ProfileList = () => {
+    
     const { currentUser, getProfileById } = useContext(ProfileContext)
     // const { userId } = useParams();
 
     useEffect(() => {
-        getProfileById(localStorage.getItem("synthomnia_user_id"))
+        getProfileById(localStorage.getItem("su_token"))
     }, [])
 
     return (

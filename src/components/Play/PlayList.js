@@ -11,6 +11,7 @@ import { FavoriteContext } from "../Favorites/FavoriteProvider"
 
 export const PlayList = () => {
   const { mood, getTracksByMoodId } = useContext(MoodContext)
+  const { tracks, getTracks } = useContext(PlayContext)
   const { moodId } = useParams()
   const history = useHistory()
   const [selectedTrack, setTrack] = useState({})
@@ -20,14 +21,21 @@ export const PlayList = () => {
   // }, [mood])
 
   useEffect(() => {
-    console.log("TrackList: useEffect - getTracks")
+    console.log("TrackList: useEffect - getTracksByMoodId")
     getTracksByMoodId(parseInt(moodId))
     .then(setTrack)
   }, [])
+  
+  useEffect(() => {
+    console.log("TrackList: useEffect - getTracksByMoodId")
+    getTracks()
+    .then(setTrack)
+  }, [])
+
 
   return (
     <>
-    
+      {/* there is no mf mood.tracks wtf */}
       {mood?.tracks?.map(track => {
         return (
           <h2 key={track.id}></h2>
@@ -37,6 +45,18 @@ export const PlayList = () => {
     </>
   )
 }
+//   return (
+//     <>
+//       {/* there is no mf mood.tracks wtf */}
+//       {mood?.tracks?.map(track => {
+//         return (
+//           <h2 key={track.id}></h2>
+//         )
+//       })}
+//       {selectedTrack && selectedTrack.bandcampURL && <PlayDetail track={selectedTrack} />}
+//     </>
+//   )
+// }
 
 // const FavoritePlayer = () => {
 //   const { favorite, getTracksByFavoriteId } = useContext(FavoriteContext)

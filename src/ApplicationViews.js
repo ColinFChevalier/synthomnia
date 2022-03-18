@@ -10,40 +10,48 @@ import { HomePage } from "./components/Info/Info"
 import { FavoriteProvider } from "./components/Favorites/FavoriteProvider"
 import { FavoriteList } from "./components/Favorites/FavoriteList"
 import { PlayDetail } from "./components/Play/PlayDetail"
+import { ProfileList } from "./components/Profile/ProfileList"
+import { ProfileProvider } from "./components/Profile/ProfileProvider"
 // import { AboutForm } from "./components/About/AboutForm"
 
 export const ApplicationViews = () => {
     return (
         <>
             <h1 align="center">S Y N T H O M N I A</h1>
-            <PlayProvider>
-                <MoodProvider>
-                    <InfoProvider>
-                        <FavoriteProvider>
-                            <Route path="/">
-                                <HomePage />
-                            </Route>
+            <ProfileProvider>
+                <PlayProvider>
+                    <MoodProvider>
+                        <InfoProvider>
+                            <FavoriteProvider>
+                                <Route path="/">
+                                    <HomePage />
+                                </Route>
 
-                            <Route path="/play/:moodId">
-                                <PlayList />
+                                <Route path="/play/:moodId">
+                                    <PlayList />
+                                    {/* <PlayDetail /> */}
+                                </Route>
 
-                            </Route>
+                                <Route path="/moods">
+                                    <MoodList />
+                                </Route>
 
-                            <Route path="/moods">
-                                <MoodList />
-                            </Route>
+                                <Route path="/favorites">
+                                    <FavoriteList />
+                                </Route>
 
-                            <Route path="/favorites">
-                                <FavoriteList />
-                            </Route>
+                                <Route path="/profile">
+                                    <ProfileList />
+                                </Route>
 
-                            {/* <Route path="/about">
+                                {/* <Route path="/about">
                                 <AboutForm />
                             </Route> */}
-                        </FavoriteProvider>
-                    </InfoProvider>
-                </MoodProvider>
-            </PlayProvider>
+                            </FavoriteProvider>
+                        </InfoProvider>
+                    </MoodProvider>
+                </PlayProvider>
+            </ProfileProvider>
         </>
     )
 }

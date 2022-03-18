@@ -61,6 +61,12 @@ const NavBar = () => {
                                 <Link className="navbar__link" to="/favorites">Favs</Link>
                             </Button>
                         </Menu.Item>
+                        <Menu.Item as='a'>
+                            <Button size="huge" className="sidebar_menu_option">
+                                <Icon name='user' />
+                                <Link className="navbar__link" to="/profile">Profile</Link>
+                            </Button>
+                        </Menu.Item>
                     </Sidebar>
 
                     <Sidebar.Pusher dimmed={visible}>
