@@ -33,6 +33,7 @@ export const MoodProvider = (props) => {
         return fetch(`http://localhost:8000/moods`, {
             method: "POST",
             headers: {
+                "Content-Type": "application/json",
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             },
             body: JSON.stringify(newMood)
@@ -40,7 +41,7 @@ export const MoodProvider = (props) => {
             .then(res => res.json())
             .then(getMoods)
     }
-    
+
     return (
         <MoodContext.Provider value={{
             getMoods, moods, getTracksByMoodId, mood, createMood

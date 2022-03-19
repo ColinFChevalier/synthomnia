@@ -1,53 +1,39 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory, Link } from "react-router"
 import { MoodContext } from "./MoodProvider"
 import "./Mood.css"
 import { PlayList } from "../Play/PlayList"
 
 export const MoodForm = () => {
-    const { moods, getMoods, createMood, mood } = useContext(MoodContext)
+    const { moods, getMoods, createMood } = useContext(MoodContext)
     const history = useHistory()
-    // const [mood, setMood] = useState({
-    //     name: "",
-    //     imgURL: ""
-    // });
-
+    const [newMood, setMood] = useState({
+        name: "",
+        imgURL: ""
+    })
 
     useEffect(() => {
         console.log("MoodList: useEffect - getMoods")
         getMoods()
     }, [])
 
-    useEffect(() => {
-        console.log("MoodList: useEffect - getMoods")
-        createMood()
-    }, [])
+    const changeMoodNameState = (event) => {
+        const newMoodState = { ...newMood };
+        newMoodState.name = event.target.value;
+        setMood(newMoodState);
+      };
+    
+      const changeMoodImageState = (event) => {
+        const newMoodState = { ...newMood };
+        newMoodState.imgURL = event.target.value;
+        setMood(newMoodState);
+      };
     
     return (
         <>
            <form className="moodForm">
             <h2 className="moodForm__title">Make a Mood</h2>
             <fieldset>
-                {/* <div className="form-group">
-                    <label htmlFor="moodId">Mood: </label>
-                    <select
-                        name="moodId"
-                        className="form-control"
-                        value={mood.moodId}
-                        onChange={changeEventGameState}
-                    >
-                        <option value="0">Select a mood...</option>
-                        {moods.map((mood) => (
-                            <option
-                                key={mood.id}
-                                value={mood.id}
-                            >
-                                {mood.title}
-                            </option>
-                        ))}
-                    </select>
-                </div> */}
-
                 <div className="form-group">
                     <label htmlFor="moodId">Name: </label>
                     <input
@@ -56,8 +42,8 @@ export const MoodForm = () => {
                         required
                         autoFocus
                         className="form-control"
-                        value={mood.name}
-                        // onChange={changeMoodNameState}
+                        value={newMood.name}
+                        onChange={changeMoodNameState}
                     />
                 </div>
 
@@ -69,8 +55,8 @@ export const MoodForm = () => {
                         required
                         autoFocus
                         className="form-control"
-                        value={mood.imgURL}
-                        // onChange={changeMoodImageState}
+                        value={newMood.imgURL}
+                        onChange={changeMoodImageState}
                     />
                 </div>
             </fieldset>
@@ -81,12 +67,12 @@ export const MoodForm = () => {
                     evt.preventDefault();
 
                     const mood = {
-                        mood: parseInt(mood.mood),
-                        name: mood.name,
-                        imgURL: mood.imgURL
+                        mood: parseInt(newMood.mood),
+                        name: newMood.name,
+                        imgURL: newMood.imgURL
 
                     }
-                    createMood(mood).then(() => history.push("/moods/new"));
+                    createMood(mood).then(() => history.push("/moods"));
                 }}
                 className="btn btn-primary"
             >
