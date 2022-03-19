@@ -11,12 +11,13 @@ export const ProfileList = () => {
     // const { userId } = useParams();
 
     useEffect(() => {
-        getProfileById(localStorage.getItem("su_token"))
+        getProfileById(localStorage.getItem(parseInt("su_token")))
+        // getProfileById()
     }, [])
 
     return (
         <>
-            <h2>Profile</h2>
+            <h2>My Profile</h2>
             <section className="profile">
                 <div className="user_info">
                     <div>

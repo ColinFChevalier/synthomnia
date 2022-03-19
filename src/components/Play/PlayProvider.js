@@ -22,9 +22,8 @@ export const PlayProvider = (props) => {
             .then(res => res.json())
     }
 
-
     const getTrackByMoodId = (moodId) => {
-        return fetch(`http://localhost:8000/tracks?moodId=${moodId}`, {
+        return fetch(`http://localhost:8000/moodtrack?moodId=${moodId}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -32,10 +31,22 @@ export const PlayProvider = (props) => {
             .then(res => res.json())
             .then(setTracks)
     }
+
     const getTrackByFavoriteId = (id) => {
         return fetch(`http://localhost:8000/moods/?_embed=favorites${id}`)
             .then(res => res.json())
     }
+
+    // const getMoodTracks = (moodId) => {
+    //     return fetch(`http://localhost:8000/moodtrack${moodId}`, {
+    //         headers: {
+    //             "Authorization": `Token ${localStorage.getItem("su_token")}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(setTracks)
+    // }
+
     // const addTracks = trackObj => {
     //     return fetch("http://localhost:8088/tracks", {
     //         method: "POST",

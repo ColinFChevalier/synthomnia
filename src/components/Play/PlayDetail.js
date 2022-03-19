@@ -7,15 +7,16 @@ import { Button, Icon, Label } from 'semantic-ui-react'
 
 export const PlayDetail = (props) => {
     
-    const { tracks, getTracks, moods } = useContext(PlayContext)
+    const { tracks, getTrackByMoodId, moods } = useContext(PlayContext)
     const { favoriteMood } = useContext(FavoriteContext)
-    const [track, setTrack] = useState({ track: {}, mood: {} })
+    // const [track, setTrack] = useState({ track: {}, mood: {} })
+    const { moodId } = useParams()
 
     const history = useHistory()
-    const { trackId } = useParams()
+
     useEffect(() => {
         console.log("PlayDetail: useEffect - getTracks")
-        getTracks()
+        getTrackByMoodId(moodId)
     }, [])
 
     // useEffect(() => {
@@ -23,17 +24,18 @@ export const PlayDetail = (props) => {
     //     getMoods()
     // }, [])
 
-    useEffect(() => {
-        if (props.track) {
-            setTrack(props.track)
-        } else {
-            const thisTrack = tracks.find(a => a.id === parseInt(trackId)) || { mood: {}, track: {} }
+    // useEffect(() => {
+    //     if (props.track) {
+    //         setTrack(props.track)
+    //     } else {
+    //         const thisTrack = tracks.find(a => a.id === parseInt(trackId)) || { mood: {}, track: {} }
+            
+    //         setTrack(thisTrack)
+    //     }
+    // }, [trackId])
+    console.log(props)
 
-            setTrack(thisTrack)
-        }
-    }, [trackId])
-
-    return (
+    return (<>{tracks.map(track =>
         <div class="ui two column centered grid">
             <div>
                 <div className="column">
@@ -60,6 +62,6 @@ export const PlayDetail = (props) => {
                     </Button>
                 </div>
             </div>
-        </div>
+        </div>)}</>    
     )
 }

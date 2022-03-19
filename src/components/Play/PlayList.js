@@ -9,36 +9,38 @@ import { useState } from "react/cjs/react.development"
 import { FavoriteContext } from "../Favorites/FavoriteProvider"
 // import { PlayDetail } from "./PlayDetail"
 
-export const PlayList = () => {
+export const PlayList = (props) => {
   const { mood, getTracksByMoodId } = useContext(MoodContext)
   const { tracks, getTracks } = useContext(PlayContext)
   const { moodId } = useParams()
   const history = useHistory()
-  const [selectedTrack, setTrack] = useState({})
+  const [setTrack, selectedTrack] = useState({})
+  // const [setSelectedTrack] = useState({}) 
 
-  // useEffect(() => {
-  //   setSelectedTrack(mood.tracks[0])
-  // }, [mood])
+
 
   useEffect(() => {
     console.log("TrackList: useEffect - getTracksByMoodId")
     getTracksByMoodId(parseInt(moodId))
     .then(setTrack)
-  }, [])
-  
-  useEffect(() => {
-    console.log("TrackList: useEffect - getTracksByMoodId")
-    getTracks()
-    .then(setTrack)
-  }, [])
+  }, [tracks])
+
+  // useEffect(() => {
+  //   setSelectedTrack(mood.tracks[0])
+  // }, [mood])
+
+  // useEffect(() => {
+  //   console.log("TrackList: useEffect - getTracksByMoodId")
+  //   getTracks(moodId)
+  //   .then(setTrack)
+  // }, [])
 
 
   return (
     <>
-      {/* there is no mf mood.tracks wtf */}
-      {mood?.tracks?.map(track => {
+      {tracks.map(track => {
         return (
-          <h2 key={track.id}></h2>
+          <h2 key={track.id} props={props}></h2>
         )
       })}
       {selectedTrack && selectedTrack.bandcampURL && <PlayDetail track={selectedTrack} />}
