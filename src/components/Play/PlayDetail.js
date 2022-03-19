@@ -2,7 +2,7 @@ import React, { useEffect, useState, createContext, useContext } from "react"
 import { useHistory, useParams } from "react-router"
 import { PlayContext } from "./PlayProvider"
 import { FavoriteContext } from "../Favorites/FavoriteProvider"
-import { Button, Icon, Label } from 'semantic-ui-react'
+import { Button, Icon, Label, Grid } from 'semantic-ui-react'
 
 
 export const PlayDetail = (props) => {
@@ -47,7 +47,7 @@ export const PlayDetail = (props) => {
                 </Button>
             </Button>
         </div>
-
+        <Grid columns={3} divided>
         {tracks.map(track =>
             <div class="ui two column centered grid">
                 <div>
@@ -75,6 +75,8 @@ export const PlayDetail = (props) => {
                         </Button>
                     </div>
                 </div>
-            </div>)}</>
+            </div>)}
+            </Grid>
+    </>
     )
 }

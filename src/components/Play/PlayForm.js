@@ -120,7 +120,7 @@ export const PlayForm = () => {
                         mood: newTrack.mood,
                         artist: newTrack.artist
                     }
-                    createTrack(track).then(() => history.push("/play"));
+                    createTrack(track).then(() => history.push("/moods"));
                 }}
                 className="btn btn-primary"
             >
