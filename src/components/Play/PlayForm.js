@@ -69,7 +69,7 @@ export const PlayForm = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="trackId">Image: </label>
+                    <label htmlFor="trackId">URL: </label>
                     <input
                         type="text"
                         name="text"
@@ -82,10 +82,10 @@ export const PlayForm = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="trackId">Image: </label>
+                    <label htmlFor="trackId">Mood: </label>
                     <input
-                        type="text"
-                        name="text"
+                        type="number"
+                        name="number"
                         required
                         autoFocus
                         className="form-control"
@@ -95,10 +95,10 @@ export const PlayForm = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="trackId">Image: </label>
+                    <label htmlFor="trackId">Artist: </label>
                     <input
-                        type="text"
-                        name="text"
+                        type="number"
+                        name="nymber"
                         required
                         autoFocus
                         className="form-control"

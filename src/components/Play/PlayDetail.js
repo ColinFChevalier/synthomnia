@@ -39,7 +39,7 @@ export const PlayDetail = (props) => {
     return (<>
         <div className="add_track-button">
             <Button as='div' labelPosition='right' onClick={() => {
-                history.push({ pathname: "/play/new" });
+                history.push({ pathname: "/play-form/new" });
             }}>
                 <Button color='green'>
                     <Icon name='plus' />

@@ -34,7 +34,7 @@ export const ApplicationViews = () => {
                                         <PlayDetail />
                                     </Route>
 
-                                    <Route exact path="/play/new">
+                                    <Route exact path="/play-form/new">
                                         <PlayForm />
                                     </Route>
 
