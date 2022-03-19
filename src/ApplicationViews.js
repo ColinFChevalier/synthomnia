@@ -5,6 +5,7 @@ import { PlayList } from "./components/Play/PlayList"
 // import { PlayDetail } from "./components/Play/PlayDetail"
 import { MoodProvider } from "./components/Moods/MoodProvider"
 import { MoodList } from "./components/Moods/MoodList"
+import { MoodForm } from "./components/Moods/MoodForm"
 import { InfoProvider } from "./components/Info/InfoProvider"
 import { HomePage } from "./components/Info/Info"
 import { FavoriteProvider } from "./components/Favorites/FavoriteProvider"
@@ -21,34 +22,38 @@ export const ApplicationViews = () => {
             <ProfileProvider>
                 <PlayProvider>
                     <MoodProvider>
-                        <InfoProvider>
-                            <FavoriteProvider>
-                                <Route path="/">
-                                    <HomePage />
-                                </Route>
+                            <InfoProvider>
+                                <FavoriteProvider>
+                                    <Route path="/">
+                                        <HomePage />
+                                    </Route>
 
-                                <Route path="/play/:moodId">
-                                    <PlayList />
-                                    <PlayDetail />
-                                </Route>
+                                    <Route path="/play/:moodId">
+                                        <PlayList />
+                                        <PlayDetail />
+                                    </Route>
 
-                                <Route path="/moods">
-                                    <MoodList />
-                                </Route>
+                                    <Route exact path="/moods">
+                                        <MoodList />
+                                    </Route>
 
-                                <Route path="/favorites">
-                                    <FavoriteList />
-                                </Route>
+                                    <Route exact path="/moods/new">
+                                        <MoodForm />
+                                    </Route>
 
-                                <Route path="/profile">
-                                    <ProfileList />
-                                </Route>
+                                    <Route exact path="/favorites">
+                                        <FavoriteList />
+                                    </Route>
 
-                                {/* <Route path="/about">
-                                <AboutForm />
-                            </Route> */}
-                            </FavoriteProvider>
-                        </InfoProvider>
+                                    <Route exact path="/profile">
+                                        <ProfileList />
+                                    </Route>
+
+                                    {/* <Route path="/about">
+                                        <AboutForm />
+                                    </Route> */}
+                                </FavoriteProvider>
+                            </InfoProvider>
                     </MoodProvider>
                 </PlayProvider>
             </ProfileProvider>

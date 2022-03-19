@@ -2,10 +2,10 @@ import React, { useContext, useEffect } from "react"
 import { useHistory, Link } from "react-router-dom"
 import { MoodContext } from "./MoodProvider"
 import "./Mood.css"
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Button, Icon, Label } from 'semantic-ui-react'
 
 export const MoodList = () => {
-    const { moods, getMoods } = useContext(MoodContext)
+    const { moods, getMoods, createMood } = useContext(MoodContext)
 
     const history = useHistory()
 
@@ -32,6 +32,16 @@ export const MoodList = () => {
                     )
                 })
             }
+            <div className="addButton">
+                <Button as='div' labelPosition='right' onClick={() => {
+                    history.push({ pathname: "/moods/new" });
+                }}>
+                    <Button color='purple'>
+                        <Icon name='add square' />
+                        Add
+                    </Button>
+                </Button>
+            </div>
         </Grid>
     )
 }
