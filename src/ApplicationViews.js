@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { PlayProvider } from "./components/Play/PlayProvider"
 import { PlayList } from "./components/Play/PlayList"
+import { PlayForm } from "./components/Play/PlayForm"
 // import { PlayDetail } from "./components/Play/PlayDetail"
 import { MoodProvider } from "./components/Moods/MoodProvider"
 import { MoodList } from "./components/Moods/MoodList"
@@ -31,6 +32,10 @@ export const ApplicationViews = () => {
                                     <Route path="/play/:moodId">
                                         <PlayList />
                                         <PlayDetail />
+                                    </Route>
+
+                                    <Route exact path="/play/new">
+                                        <PlayForm />
                                     </Route>
 
                                     <Route exact path="/moods">

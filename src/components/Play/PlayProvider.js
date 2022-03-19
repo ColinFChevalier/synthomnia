@@ -17,6 +17,19 @@ export const PlayProvider = (props) => {
             .then(setTracks)
     }
 
+    const createTrack = (newTrack) => {
+        return fetch(`http://localhost:8000/tracks`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("su_token")}`
+            },
+            body: JSON.stringify(newTrack)
+        })
+            .then(res => res.json())
+            .then(getTracks)
+    }
+
     const getMoods = () => {
         return fetch("http://localhost:8000/moods")
             .then(res => res.json())
@@ -61,7 +74,7 @@ export const PlayProvider = (props) => {
 
     return (
         <PlayContext.Provider value={{
-            tracks, getTracks, getMoods, getTrackByMoodId, getTrackByFavoriteId
+            tracks, getTracks, getMoods, getTrackByMoodId, getTrackByFavoriteId, createTrack
         }}>
             {props.children}
         </PlayContext.Provider>

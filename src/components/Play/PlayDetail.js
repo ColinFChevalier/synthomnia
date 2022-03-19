@@ -6,9 +6,10 @@ import { Button, Icon, Label } from 'semantic-ui-react'
 
 
 export const PlayDetail = (props) => {
-    
+
     const { tracks, getTrackByMoodId, moods } = useContext(PlayContext)
     const { favoriteMood } = useContext(FavoriteContext)
+    const { createTrack } = useContext(PlayContext)
     // const [track, setTrack] = useState({ track: {}, mood: {} })
     const { moodId } = useParams()
 
@@ -29,39 +30,51 @@ export const PlayDetail = (props) => {
     //         setTrack(props.track)
     //     } else {
     //         const thisTrack = tracks.find(a => a.id === parseInt(trackId)) || { mood: {}, track: {} }
-            
+
     //         setTrack(thisTrack)
     //     }
     // }, [trackId])
     console.log(props)
 
-    return (<>{tracks.map(track =>
-        <div class="ui two column centered grid">
-            <div>
-                <div className="column">
-                    <section className="Tracks">
-                        <h2 align='center'>{track.name}</h2>
-                        <div className="embed" >
-                            {track.bandcampURL && <iframe className="embed_player"
-                                src={track.bandcampURL}
-                                seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
-                            </iframe>}
-                        </div>
-                    </section>
-                </div>
-                <div className="four column centered row">
-                    <div className="column"></div>
-                    <div className="column"></div>
-                </div>
+    return (<>
+        <div className="add_track-button">
+            <Button as='div' labelPosition='right' onClick={() => {
+                history.push({ pathname: "/play/new" });
+            }}>
+                <Button color='green'>
+                    <Icon name='plus' />
+                    Add
+                </Button>
+            </Button>
+        </div>
+
+        {tracks.map(track =>
+            <div class="ui two column centered grid">
                 <div>
-                    <Button as='div' labelPosition='right' onClick={() => favoriteMood(track.id)}>
-                        <Button color='red'>
-                            <Icon name='heart' />
-                            Like
+                    <div className="column">
+                        <section className="Tracks">
+                            <h2 align='center'>{track.name}</h2>
+                            <div className="embed" >
+                                {track.bandcampURL && <iframe className="embed_player"
+                                    src={track.bandcampURL}
+                                    seamless><a href="https://oralsax.bandcamp.com/album/type-zero-2">Type Zero by Oral Sax</a>
+                                </iframe>}
+                            </div>
+                        </section>
+                    </div>
+                    <div className="four column centered row">
+                        <div className="column"></div>
+                        <div className="column"></div>
+                    </div>
+                    <div>
+                        <Button as='div' labelPosition='right' onClick={() => favoriteMood(track.id)}>
+                            <Button color='red'>
+                                <Icon name='heart' />
+                                Like
+                            </Button>
                         </Button>
-                    </Button>
+                    </div>
                 </div>
-            </div>
-        </div>)}</>    
+            </div>)}</>
     )
 }
