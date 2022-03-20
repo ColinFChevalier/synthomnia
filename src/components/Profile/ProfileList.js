@@ -7,13 +7,13 @@ import { ProfileContext } from "./ProfileProvider"
 
 export const ProfileList = () => {
     
-    const { currentUser, getProfileById, profiles } = useContext(ProfileContext)
+    const { currentUser, getProfileById, profiles, setCurrentUser } = useContext(ProfileContext)
     // const { userId } = useParams();
 
     useEffect(() => {
         getProfileById()
-        // getProfileById()
-    }, [])
+        .then(setCurrentUser)
+    }, [currentUser])
 
     return (
         <>

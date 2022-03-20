@@ -19,9 +19,21 @@ export const MoodProvider = (props) => {
             .then(setMoods)
     }
 
+    const deleteMood = (id) => {
+        return fetch(`http://localhost:8000/moods/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("su_token")}`
+            }
+        })
+            .then(res => res.json())
+            .then(getMoods)
+    }
+
     const getTracksByMoodId = (id) => {
         return fetch(`http://localhost:8000/moods/${id}`, {
             headers: {
+                "Content-Type": "application/json",
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
         })
@@ -44,7 +56,7 @@ export const MoodProvider = (props) => {
 
     return (
         <MoodContext.Provider value={{
-            getMoods, moods, getTracksByMoodId, mood, createMood
+            getMoods, moods, getTracksByMoodId, mood, createMood, deleteMood
         }}>
             {props.children}
         </MoodContext.Provider>

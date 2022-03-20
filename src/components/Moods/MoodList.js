@@ -5,7 +5,7 @@ import "./Mood.css"
 import { Grid, Image, Button, Icon, Label } from 'semantic-ui-react'
 
 export const MoodList = () => {
-    const { moods, getMoods, createMood } = useContext(MoodContext)
+    const { moods, getMoods, createMood, deleteMood } = useContext(MoodContext)
 
     const history = useHistory()
 
@@ -28,6 +28,14 @@ export const MoodList = () => {
                                     </div>
                                 </Link>
                             </Grid.Column>
+                            <div>
+                            <Button as='div' labelPosition='right' onClick={() => deleteMood(mood.id)}>
+                                <Button color='red'>
+                                    <Icon name='delete' />
+                                    Delete
+                                </Button>
+                            </Button>
+                        </div>
                         </Grid.Column>
                     )
                 })
