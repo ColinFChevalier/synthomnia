@@ -4,7 +4,6 @@ import "./NavBar.css"
 import 'semantic-ui-react'
 import 'semantic-ui-css'
 import {
-    Checkbox,
     Grid,
     Header,
     Icon,
@@ -14,6 +13,8 @@ import {
     Button,
 } from 'semantic-ui-react'
 import { ApplicationViews } from "../../ApplicationViews"
+
+const currentUser = parseInt(localStorage.getItem("su_token"))
 
 const NavBar = () => {
     const [visible, setVisible] = React.useState(false)
@@ -46,20 +47,26 @@ const NavBar = () => {
                         </Grid.Column>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='play' />
-                                <Link className="navbar__link" to="/play">Play</Link>
+                                <Icon name='home' />
+                                <Link className="navbar__link" to="/home">Home</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='gamepad' />
+                                <Icon name='options' />
                                 <Link className="navbar__link" to="/moods">Mood</Link>
                             </Button>
                         </Menu.Item>
                         <Menu.Item as='a'>
                             <Button size="huge" className="sidebar_menu_option">
-                                <Icon name='camera' />
-                                <Link className="navbar__link" to="/about">About</Link>
+                                <Icon name='favorite' />
+                                <Link className="navbar__link" to="/favorites">Favs</Link>
+                            </Button>
+                        </Menu.Item>
+                        <Menu.Item as='a'>
+                            <Button size="huge" className="sidebar_menu_option">
+                                <Icon name='user' />
+                                <Link className="navbar__link" to="/profile">Profile</Link>
                             </Button>
                         </Menu.Item>
                     </Sidebar>
@@ -71,7 +78,7 @@ const NavBar = () => {
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
                         }}>
-                            <Segment basic style={{ height: '100vh' }}>
+                            <Segment basic style={{ height: '100vh', width: '100vw' }}>
                                 <ApplicationViews />
                             </Segment>
                         </div>

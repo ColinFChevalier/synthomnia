@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react"
 import { useHistory, Link } from "react-router"
 import { MoodContext } from "./MoodProvider"
 import "./Mood.css"
-import { Grid, Image } from 'semantic-ui-react'
 import { PlayList } from "../Play/PlayList"
 
 export const MoodList = () => {
@@ -19,7 +18,7 @@ export const MoodList = () => {
         console.log("MoodList: useEffect - getMoods")
         getTracksByMoodId()
     }, [])
-
+    
     return (
         <PlayList />
     )

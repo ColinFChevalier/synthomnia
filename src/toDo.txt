@@ -10,6 +10,11 @@ pulls from api
 
 -favoriting function
 
+-maybe make if else function for PlayList that selects
+a mood choice if mood is selected and favorite choice if favorite is selected?
+
+-favorite by mood instead of track
+
 
 
 
