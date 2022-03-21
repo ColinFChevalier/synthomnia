@@ -11,13 +11,13 @@ export const FavoriteProvider = (props) => {
 
 
     const getFavorites = () => {
-        return fetch("http://localhost:8088/favorites")
+        return fetch("http://localhost:8000/favorites")
             .then(res => res.json())
             .then(setFavorites)
     }
 
     const getMoodsByFavoriteId = (id) => {
-        return fetch(`http://localhost:8088/favorites/${id}?_embed=tracks`)
+        return fetch(`http://localhost:8000/favorites/${id}?_embed=tracks`)
             .then(res => res.json())
             .then(setFavorite)
     }
@@ -43,7 +43,7 @@ export const FavoriteProvider = (props) => {
     }
 
     const deleteFav = favId => {
-        return fetch(`http://localhost:8088/favorites/${favId}`, {
+        return fetch(`http://localhost:8000/favorites/${favId}`, {
             method: "DELETE"
         })
             .then(getFavorites)

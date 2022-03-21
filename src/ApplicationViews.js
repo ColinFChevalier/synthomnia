@@ -14,6 +14,7 @@ import { FavoriteList } from "./components/Favorites/FavoriteList"
 import { PlayDetail } from "./components/Play/PlayDetail"
 import { ProfileList } from "./components/Profile/ProfileList"
 import { ProfileProvider } from "./components/Profile/ProfileProvider"
+import { ArtistProvider } from "./components/Artists/ArtistProvider"
 // import { AboutForm } from "./components/About/AboutForm"
 
 export const ApplicationViews = () => {
@@ -21,8 +22,9 @@ export const ApplicationViews = () => {
         <>
             <h1 align="center">S Y N T H O M N I A</h1>
             <ProfileProvider>
-                <PlayProvider>
-                    <MoodProvider>
+                <ArtistProvider>
+                    <PlayProvider>
+                        <MoodProvider>
                             <InfoProvider>
                                 <FavoriteProvider>
                                     <Route path="/">
@@ -59,8 +61,9 @@ export const ApplicationViews = () => {
                                     </Route> */}
                                 </FavoriteProvider>
                             </InfoProvider>
-                    </MoodProvider>
-                </PlayProvider>
+                        </MoodProvider>
+                    </PlayProvider>
+                </ArtistProvider>
             </ProfileProvider>
         </>
     )

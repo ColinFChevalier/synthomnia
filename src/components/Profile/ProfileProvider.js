@@ -17,6 +17,7 @@ export const ProfileProvider = (props) => {
     }
 
     const getProfileById = (id) => {
+        console.log(id)
         return fetch(`http://localhost:8000/synthomniauser/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
@@ -34,5 +35,3 @@ export const ProfileProvider = (props) => {
         </ProfileContext.Provider>
     )
 }
-
-// a41dce7076b1ff7790db68a952051fd8ef9a5a44

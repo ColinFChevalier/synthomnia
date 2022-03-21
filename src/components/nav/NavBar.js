@@ -14,6 +14,8 @@ import {
 } from 'semantic-ui-react'
 import { ApplicationViews } from "../../ApplicationViews"
 
+const currentUser = parseInt(localStorage.getItem("su_token"))
+
 const NavBar = () => {
     const [visible, setVisible] = React.useState(false)
 
