@@ -13,7 +13,7 @@ export const PlayForm = () => {
         title: "",
         bandcampURL: "",
         mood: 0,
-        artist: 0
+        // artist: 0
     })
 
     useEffect(() => {
@@ -101,16 +101,6 @@ export const PlayForm = () => {
                                 </option>
                             ))}
                         </select>
-                        {/* <select
-                            type="select"
-                            name="number"
-                            required
-                            autoFocus
-                            className="form-control"
-                            value={newTrack.mood}
-                            onChange={changeTrackMoodState}
-                        
-                        /> */}
                     </div>
 
                     {/* <div className="form-group">
@@ -137,7 +127,7 @@ export const PlayForm = () => {
                             title: newTrack.title,
                             bandcampURL: newTrack.bandcampURL,
                             mood: newTrack.mood,
-                            artist: newTrack.artist
+                            // artist: newTrack.artist
                         }
                         createTrack(track).then(() => history.push("/moods"));
                     }}
