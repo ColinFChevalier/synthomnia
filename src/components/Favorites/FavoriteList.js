@@ -8,7 +8,6 @@ import { Grid, Image, Header, Button, Icon } from 'semantic-ui-react'
 
 export const FavoriteList = (props) => {
     const { favorites, getFavorites, deleteFav } = useContext(FavoriteContext)
-    // const [track, setTrack] = useState({ track: {}, mood: {} })
     const currentUser = parseInt(sessionStorage.getItem("synthomnia_user"))
     const history = useHistory()
     const [favorite] = useState({ favorites: {} })

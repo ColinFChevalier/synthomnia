@@ -13,18 +13,6 @@ export const InfoProvider = (props) => {
         .then(setInfos)
     }
 
-    // const getMoods = () => {
-    //     return fetch("http://localhost:8088/moods")
-    //     .then(res => res.json())
-    // }
-
-
-    // const getInfoByMoodId = (id) => {
-    //     return fetch(`http://localhost:8088/moods/?_embed=infos${id}`)
-    //     .then(res => res.json())
-    // }
-
-
     return (
         <InfoContext.Provider value={{
             infos, getInfo

@@ -10,7 +10,7 @@ export const ArtistProvider = (props) => {
 
 
     const getArtists = () => {
-        return fetch("http://localhost:8000/artist", {
+        return fetch("https://quiet-bayou-08478.herokuapp.com/artist", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -20,7 +20,7 @@ export const ArtistProvider = (props) => {
     }
 
     const deleteArtist = (id) => {
-        return fetch(`http://localhost:8000/artist/${id}`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/artist/${id}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
@@ -31,7 +31,7 @@ export const ArtistProvider = (props) => {
     }
 
     const getTracksByArtistId = (id) => {
-        return fetch(`http://localhost:8000/artist/${id}`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/artist/${id}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
@@ -42,7 +42,7 @@ export const ArtistProvider = (props) => {
     }
 
     const createArtist = (newArtist) => {
-        return fetch(`http://localhost:8000/artist`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/artist`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

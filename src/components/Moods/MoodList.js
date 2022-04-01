@@ -12,7 +12,6 @@ export const MoodList = () => {
     const history = useHistory()
 
     useEffect(() => {
-        console.log("MoodList: useEffect - getMoods")
         getMoods()
     }, [])
 

@@ -10,7 +10,7 @@ export const MoodProvider = (props) => {
 
 
     const getMoods = () => {
-        return fetch("http://localhost:8000/moods", {
+        return fetch("https://quiet-bayou-08478.herokuapp.com/moods", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -20,7 +20,7 @@ export const MoodProvider = (props) => {
     }
 
     const deleteMood = (id) => {
-        return fetch(`http://localhost:8000/moods/${id}`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/moods/${id}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
@@ -31,7 +31,7 @@ export const MoodProvider = (props) => {
     }
 
     const getTracksByMoodId = (id) => {
-        return fetch(`http://localhost:8000/moods/${id}`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/moods/${id}`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
@@ -42,7 +42,7 @@ export const MoodProvider = (props) => {
     }
 
     const createMood = (newMood) => {
-        return fetch(`http://localhost:8000/moods`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/moods`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -62,31 +62,3 @@ export const MoodProvider = (props) => {
         </MoodContext.Provider>
     )
 }
-
-
-// const getTracksByMoodId = (id) => {
-//     return fetch(`http://localhost:8000/moods/${id}?_embed=tracks`, {
-//         headers: {
-//             "Authorization": `Token ${localStorage.getItem("su_token")}`
-//         }
-//     })
-//         .then(res => res.json())
-//         .then(setMood)
-// }
-
-// const getTracskByMoodId = (id) => {
-//     return fetch("http://localhost:8088/moods/?_embed=tracks")
-//     .then(res => res.json())
-// }
-
-
-// const addTracks = trackObj => {
-//     return fetch("http://localhost:8088/tracks", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(trackObj)
-//     })
-//     .then(getTracks)
-// }

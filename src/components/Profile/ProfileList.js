@@ -4,7 +4,6 @@ import { ProfileContext } from "./ProfileProvider"
 // import { profile } from "./components/Auth/AuthProvider"
  
 const currentUser = parseInt(localStorage.getItem("su_token"))
-// const userProfile = []
 console.log(currentUser)
 
 export const ProfileList = () => {

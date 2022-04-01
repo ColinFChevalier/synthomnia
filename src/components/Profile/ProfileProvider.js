@@ -7,7 +7,7 @@ export const ProfileProvider = (props) => {
     const [currentUser, setCurrentUser] = useState({})
 
     const getProfiles = () => {
-        return fetch("http://localhost:8000/synthomniauser", {
+        return fetch("https://quiet-bayou-08478.herokuapp.com/synthomniauser", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -18,7 +18,7 @@ export const ProfileProvider = (props) => {
 
     const getProfileById = (id) => {
         console.log(id)
-        return fetch(`http://localhost:8000/synthomniauser/${id}`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/synthomniauser/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }

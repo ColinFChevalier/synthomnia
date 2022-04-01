@@ -43,18 +43,11 @@ export const PlayForm = () => {
         setTrack(newTrackState);
     };
 
-    const changeTrackArtistState = (event) => {
-        const newTrackState = { ...newTrack };
-        newTrackState.artist = event.target.value;
-        setTrack(newTrackState);
-    };
-
-    //   const editInputChange = (event) => {
-    //     const newTrack = {...newTrack}
-    //     newTrack[event.target.id] = event.target.value
-    //     setTrack(newTrack)
-    // }
-
+    // const changeTrackArtistState = (event) => {
+    //     const newTrackState = { ...newTrack };
+    //     newTrackState.artist = event.target.value;
+    //     setTrack(newTrackState);
+    // };
 
     return (
         <>
@@ -120,7 +113,7 @@ export const PlayForm = () => {
                         /> */}
                     </div>
 
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label htmlFor="trackId">Artist: </label>
                         <input
                             type="number"
@@ -131,7 +124,7 @@ export const PlayForm = () => {
                             value={newTrack.artist}
                             onChange={changeTrackArtistState}
                         />
-                    </div>
+                    </div> */}
                 </fieldset>
 
                 <button

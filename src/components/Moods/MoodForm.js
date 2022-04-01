@@ -28,13 +28,6 @@ export const MoodForm = () => {
         newMoodState.imgURL = event.target.value;
         setMood(newMoodState);
       };
-
-    //   const editInputChange = (event) => {
-    //     const newMoodState = { ...newMood };
-    //     newMoodState[event.target.id] = event.target.value
-    //     setMood(newMoodState)
-    // }
-
     
     return (
         <>

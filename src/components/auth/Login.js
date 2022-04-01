@@ -12,7 +12,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch("http://127.0.0.1:8000/login", {
+        return fetch("https://quiet-bayou-08478.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

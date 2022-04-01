@@ -8,7 +8,7 @@ export const PlayProvider = (props) => {
     const [tracks, setTracks] = useState([])
 
     const getTracks = () => {
-        return fetch("http://localhost:8000/tracks", {
+        return fetch("https://quiet-bayou-08478.herokuapp.com/tracks", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -18,7 +18,7 @@ export const PlayProvider = (props) => {
     }
 
     const createTrack = (newTrack) => {
-        return fetch(`http://localhost:8000/tracks`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/tracks`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -31,12 +31,12 @@ export const PlayProvider = (props) => {
     }
 
     const getMoods = () => {
-        return fetch("http://localhost:8000/moods")
+        return fetch("https://quiet-bayou-08478.herokuapp.com/moods")
             .then(res => res.json())
     }
 
     const getTrackByMoodId = (moodId) => {
-        return fetch(`http://localhost:8000/moodtrack?moodId=${moodId}`, {
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/moodtrack?moodId=${moodId}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("su_token")}`
             }
@@ -46,31 +46,9 @@ export const PlayProvider = (props) => {
     }
 
     const getTrackByFavoriteId = (id) => {
-        return fetch(`http://localhost:8000/moods/?_embed=favorites${id}`)
+        return fetch(`https://quiet-bayou-08478.herokuapp.com/moods/?_embed=favorites${id}`)
             .then(res => res.json())
     }
-
-    // const getMoodTracks = (moodId) => {
-    //     return fetch(`http://localhost:8000/moodtrack${moodId}`, {
-    //         headers: {
-    //             "Authorization": `Token ${localStorage.getItem("su_token")}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(setTracks)
-    // }
-
-    // const addTracks = trackObj => {
-    //     return fetch("http://localhost:8088/tracks", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(trackObj)
-    //     })
-    //     .then(getTracks)
-    // }
-
 
     return (
         <PlayContext.Provider value={{

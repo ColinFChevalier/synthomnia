@@ -10,7 +10,6 @@ export const PlayDetail = (props) => {
     const { tracks, getTrackByMoodId, moods, deleteMood } = useContext(PlayContext)
     const { favoriteMood } = useContext(FavoriteContext)
     const { createTrack } = useContext(PlayContext)
-    // const [track, setTrack] = useState({ track: {}, mood: {} })
     const { moodId } = useParams()
 
     const history = useHistory()
@@ -20,20 +19,6 @@ export const PlayDetail = (props) => {
         getTrackByMoodId(moodId)
     }, [])
 
-    // useEffect(() => {
-    //     console.log("PlayDetail: useEffect - getMoods")
-    //     getMoods()
-    // }, [])
-
-    // useEffect(() => {
-    //     if (props.track) {
-    //         setTrack(props.track)
-    //     } else {
-    //         const thisTrack = tracks.find(a => a.id === parseInt(trackId)) || { mood: {}, track: {} }
-
-    //         setTrack(thisTrack)
-    //     }
-    // }, [trackId])
     console.log(props)
 
     return (<>

@@ -25,17 +25,6 @@ export const PlayList = (props) => {
     .then(setTrack)
   }, [tracks])
 
-  // useEffect(() => {
-  //   setSelectedTrack(mood.tracks[0])
-  // }, [mood])
-
-  // useEffect(() => {
-  //   console.log("TrackList: useEffect - getTracksByMoodId")
-  //   getTracks(moodId)
-  //   .then(setTrack)
-  // }, [])
-
-
   return (
     <>
       {tracks.map(track => {
@@ -47,40 +36,3 @@ export const PlayList = (props) => {
     </>
   )
 }
-//   return (
-//     <>
-//       {/* there is no mf mood.tracks wtf */}
-//       {mood?.tracks?.map(track => {
-//         return (
-//           <h2 key={track.id}></h2>
-//         )
-//       })}
-//       {selectedTrack && selectedTrack.bandcampURL && <PlayDetail track={selectedTrack} />}
-//     </>
-//   )
-// }
-
-// const FavoritePlayer = () => {
-//   const { favorite, getTracksByFavoriteId } = useContext(FavoriteContext)
-//   const { favoriteId } = useParams()
-
-//   useEffect(() => {
-//     setSelectedTrack(favorite.tracks[0])
-//   }, [favorite])
-
-//   useEffect(() => {
-//     console.log("TrackList: useEffect - getTracks")
-//     getTracksByFavoriteId(favoriteId)
-//   }, [])
-
-//   return (
-//     <>
-//       {favorite.tracks.map(track => {
-//         return (
-//           <h2 key={track.id}></h2>
-//         )
-//       })}
-//       {selectedTrack && selectedTrack.bandcampURL && <PlayDetail track={selectedTrack} />}
-//     </>
-//   )
-// }
